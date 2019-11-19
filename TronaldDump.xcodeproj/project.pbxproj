@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3592E387238405F000821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E386238405F000821B26 /* AppDelegate.swift */; };
+		3592E389238405F000821B26 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E388238405F000821B26 /* TagsViewController.swift */; };
+		3592E38E238405F100821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38D238405F100821B26 /* Assets.xcassets */; };
+		3592E391238405F100821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38F238405F100821B26 /* LaunchScreen.storyboard */; };
+		3592E39C238405F100821B26 /* TronaldDumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E39B238405F100821B26 /* TronaldDumpTests.swift */; };
+		3592E3A72384063300821B26 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3A62384063300821B26 /* AppCoordinator.swift */; };
+		3592E3A9238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3592E3A8238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf */; };
+		3592E3AD2384084400821B26 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AC2384084400821B26 /* Networking.swift */; };
+		3592E3AF23840A0A00821B26 /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AE23840A0A00821B26 /* TagService.swift */; };
+		3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3B223840ACF00821B26 /* TagListResponse.swift */; };
+		3592E3B523840E4E00821B26 /* TagDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3B423840E4E00821B26 /* TagDetails.swift */; };
+		3A5A0726A9076ED60A5C1083 /* Pods_TronaldDump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7428C967C20FDFE55AF4F0FC /* Pods_TronaldDump.framework */; };
+		AA3B43E8FA463AECA47F58F6 /* Pods_TronaldDumpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5F9727868BC202CA4DF2F /* Pods_TronaldDumpTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3592E398238405F100821B26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3592E37B238405F000821B26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3592E382238405F000821B26;
+			remoteInfo = TronaldDump;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		231AA187BB3AA685DADF4F24 /* Pods-TronaldDumpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDumpTests.release.xcconfig"; path = "Target Support Files/Pods-TronaldDumpTests/Pods-TronaldDumpTests.release.xcconfig"; sourceTree = "<group>"; };
+		3592E383238405F000821B26 /* TronaldDump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TronaldDump.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3592E386238405F000821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3592E388238405F000821B26 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		3592E38D238405F100821B26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3592E390238405F100821B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3592E392238405F100821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3592E397238405F100821B26 /* TronaldDumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TronaldDumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3592E39B238405F100821B26 /* TronaldDumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpTests.swift; sourceTree = "<group>"; };
+		3592E39D238405F100821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3592E3A62384063300821B26 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3592E3A8238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "DICE_-_iOS_-_Technical_Exercise.pdf"; sourceTree = "<group>"; };
+		3592E3AA2384077E00821B26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3592E3AC2384084400821B26 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		3592E3AE23840A0A00821B26 /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
+		3592E3B223840ACF00821B26 /* TagListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListResponse.swift; sourceTree = "<group>"; };
+		3592E3B423840E4E00821B26 /* TagDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetails.swift; sourceTree = "<group>"; };
+		3BD5F9727868BC202CA4DF2F /* Pods_TronaldDumpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TronaldDumpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFDECF8AB30AC50A9ED328D /* Pods-TronaldDump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDump.debug.xcconfig"; path = "Target Support Files/Pods-TronaldDump/Pods-TronaldDump.debug.xcconfig"; sourceTree = "<group>"; };
+		7428C967C20FDFE55AF4F0FC /* Pods_TronaldDump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TronaldDump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D46D703253419B63B4C1DA7 /* Pods-TronaldDumpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDumpTests.debug.xcconfig"; path = "Target Support Files/Pods-TronaldDumpTests/Pods-TronaldDumpTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFF3A1899131A39C3B030B39 /* Pods-TronaldDump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDump.release.xcconfig"; path = "Target Support Files/Pods-TronaldDump/Pods-TronaldDump.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3592E380238405F000821B26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5A0726A9076ED60A5C1083 /* Pods_TronaldDump.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3592E394238405F100821B26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA3B43E8FA463AECA47F58F6 /* Pods_TronaldDumpTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D744ABBB538BEDBEBAF0160 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EFDECF8AB30AC50A9ED328D /* Pods-TronaldDump.debug.xcconfig */,
+				FFF3A1899131A39C3B030B39 /* Pods-TronaldDump.release.xcconfig */,
+				9D46D703253419B63B4C1DA7 /* Pods-TronaldDumpTests.debug.xcconfig */,
+				231AA187BB3AA685DADF4F24 /* Pods-TronaldDumpTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3592E37A238405F000821B26 = {
+			isa = PBXGroup;
+			children = (
+				3592E3A8238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf */,
+				3592E3AA2384077E00821B26 /* README.md */,
+				3592E385238405F000821B26 /* TronaldDump */,
+				3592E39A238405F100821B26 /* TronaldDumpTests */,
+				3592E384238405F000821B26 /* Products */,
+				1D744ABBB538BEDBEBAF0160 /* Pods */,
+				CFE3869806DE8A0B94934FCB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3592E384238405F000821B26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3592E383238405F000821B26 /* TronaldDump.app */,
+				3592E397238405F100821B26 /* TronaldDumpTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3592E385238405F000821B26 /* TronaldDump */ = {
+			isa = PBXGroup;
+			children = (
+				3592E386238405F000821B26 /* AppDelegate.swift */,
+				3592E388238405F000821B26 /* TagsViewController.swift */,
+				3592E3A62384063300821B26 /* AppCoordinator.swift */,
+				3592E3B123840AB900821B26 /* Models */,
+				3592E3B023840AB100821B26 /* API */,
+				3592E3AB2384082500821B26 /* Supporting Files */,
+			);
+			path = TronaldDump;
+			sourceTree = "<group>";
+		};
+		3592E39A238405F100821B26 /* TronaldDumpTests */ = {
+			isa = PBXGroup;
+			children = (
+				3592E39B238405F100821B26 /* TronaldDumpTests.swift */,
+				3592E39D238405F100821B26 /* Info.plist */,
+			);
+			path = TronaldDumpTests;
+			sourceTree = "<group>";
+		};
+		3592E3AB2384082500821B26 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3592E38D238405F100821B26 /* Assets.xcassets */,
+				3592E38F238405F100821B26 /* LaunchScreen.storyboard */,
+				3592E392238405F100821B26 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3592E3B023840AB100821B26 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3592E3AC2384084400821B26 /* Networking.swift */,
+				3592E3AE23840A0A00821B26 /* TagService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3592E3B123840AB900821B26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3592E3B223840ACF00821B26 /* TagListResponse.swift */,
+				3592E3B423840E4E00821B26 /* TagDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CFE3869806DE8A0B94934FCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7428C967C20FDFE55AF4F0FC /* Pods_TronaldDump.framework */,
+				3BD5F9727868BC202CA4DF2F /* Pods_TronaldDumpTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3592E382238405F000821B26 /* TronaldDump */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3592E3A0238405F100821B26 /* Build configuration list for PBXNativeTarget "TronaldDump" */;
+			buildPhases = (
+				924C926E37F081678BCDB04C /* [CP] Check Pods Manifest.lock */,
+				3592E37F238405F000821B26 /* Sources */,
+				3592E380238405F000821B26 /* Frameworks */,
+				3592E381238405F000821B26 /* Resources */,
+				7B695B56763E4B6B552B78C9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TronaldDump;
+			productName = TronaldDump;
+			productReference = 3592E383238405F000821B26 /* TronaldDump.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3592E396238405F100821B26 /* TronaldDumpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3592E3A3238405F100821B26 /* Build configuration list for PBXNativeTarget "TronaldDumpTests" */;
+			buildPhases = (
+				C1176236821B30EB7B09D528 /* [CP] Check Pods Manifest.lock */,
+				3592E393238405F100821B26 /* Sources */,
+				3592E394238405F100821B26 /* Frameworks */,
+				3592E395238405F100821B26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3592E399238405F100821B26 /* PBXTargetDependency */,
+			);
+			name = TronaldDumpTests;
+			productName = TronaldDumpTests;
+			productReference = 3592E397238405F100821B26 /* TronaldDumpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3592E37B238405F000821B26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = ACartagena;
+				TargetAttributes = {
+					3592E382238405F000821B26 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					3592E396238405F100821B26 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3592E382238405F000821B26;
+					};
+				};
+			};
+			buildConfigurationList = 3592E37E238405F000821B26 /* Build configuration list for PBXProject "TronaldDump" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3592E37A238405F000821B26;
+			productRefGroup = 3592E384238405F000821B26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3592E382238405F000821B26 /* TronaldDump */,
+				3592E396238405F100821B26 /* TronaldDumpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3592E381238405F000821B26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3592E391238405F100821B26 /* LaunchScreen.storyboard in Resources */,
+				3592E3A9238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf in Resources */,
+				3592E38E238405F100821B26 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3592E395238405F100821B26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7B695B56763E4B6B552B78C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TronaldDump/Pods-TronaldDump-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TronaldDump/Pods-TronaldDump-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TronaldDump/Pods-TronaldDump-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		924C926E37F081678BCDB04C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TronaldDump-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1176236821B30EB7B09D528 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TronaldDumpTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3592E37F238405F000821B26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */,
+				3592E3A72384063300821B26 /* AppCoordinator.swift in Sources */,
+				3592E3AF23840A0A00821B26 /* TagService.swift in Sources */,
+				3592E389238405F000821B26 /* TagsViewController.swift in Sources */,
+				3592E387238405F000821B26 /* AppDelegate.swift in Sources */,
+				3592E3AD2384084400821B26 /* Networking.swift in Sources */,
+				3592E3B523840E4E00821B26 /* TagDetails.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3592E393238405F100821B26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3592E39C238405F100821B26 /* TronaldDumpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3592E399238405F100821B26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3592E382238405F000821B26 /* TronaldDump */;
+			targetProxy = 3592E398238405F100821B26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3592E38F238405F100821B26 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3592E390238405F100821B26 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3592E39E238405F100821B26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3592E39F238405F100821B26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3592E3A1238405F100821B26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EFDECF8AB30AC50A9ED328D /* Pods-TronaldDump.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWW575E2Q5;
+				INFOPLIST_FILE = TronaldDump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.TronaldDump;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3592E3A2238405F100821B26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFF3A1899131A39C3B030B39 /* Pods-TronaldDump.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWW575E2Q5;
+				INFOPLIST_FILE = TronaldDump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.TronaldDump;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3592E3A4238405F100821B26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D46D703253419B63B4C1DA7 /* Pods-TronaldDumpTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWW575E2Q5;
+				INFOPLIST_FILE = TronaldDumpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.TronaldDumpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TronaldDump.app/TronaldDump";
+			};
+			name = Debug;
+		};
+		3592E3A5238405F100821B26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 231AA187BB3AA685DADF4F24 /* Pods-TronaldDumpTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWW575E2Q5;
+				INFOPLIST_FILE = TronaldDumpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.TronaldDumpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TronaldDump.app/TronaldDump";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3592E37E238405F000821B26 /* Build configuration list for PBXProject "TronaldDump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3592E39E238405F100821B26 /* Debug */,
+				3592E39F238405F100821B26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3592E3A0238405F100821B26 /* Build configuration list for PBXNativeTarget "TronaldDump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3592E3A1238405F100821B26 /* Debug */,
+				3592E3A2238405F100821B26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3592E3A3238405F100821B26 /* Build configuration list for PBXNativeTarget "TronaldDumpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3592E3A4238405F100821B26 /* Debug */,
+				3592E3A5238405F100821B26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3592E37B238405F000821B26 /* Project object */;
+}
