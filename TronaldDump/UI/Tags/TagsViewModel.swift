@@ -45,6 +45,6 @@ class TagsViewModel {
     }
 
     func selected(tag: TagName) {
-        
+        flow?.gotoDetails(for: tag)
     }
 }
