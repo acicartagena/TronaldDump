@@ -8,10 +8,8 @@
 
 import Foundation
 
-typealias TagName = String
-
 struct TagListResponse: Decodable {
     let count: Int
     let total: Int
-    let _embedded: [TagName]
+    let _embedded: [String]
 }
