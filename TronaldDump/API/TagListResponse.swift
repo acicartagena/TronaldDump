@@ -9,7 +9,24 @@
 import Foundation
 
 struct TagListResponse: Decodable {
+
+    enum CodingKeys: String, CodingKey {
+        case embedded = "_embedded"
+        case count
+        case total
+    }
+
     let count: Int
     let total: Int
-    let _embedded: [String]
+    let embedded: [String]
+}
+
+extension TagListResponse {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        embedded = try container.decode([String].self, forKey: .embedded)
+        count = try container.decode(Int.self, forKey: .count)
+        total = try container.decode(Int.self, forKey: .total)
+    }
 }

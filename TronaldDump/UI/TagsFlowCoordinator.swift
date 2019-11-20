@@ -24,7 +24,8 @@ class TagsFlowCoordinator: TagsFlow {
     }
 
     func gotoDetails(for tag: TagName) {
-        let viewController = TagDetailsViewController()
+        let viewModel = TagDetailsViewModel(tagName: tag, tagsActions: TagsService())
+        let viewController = TagDetailsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

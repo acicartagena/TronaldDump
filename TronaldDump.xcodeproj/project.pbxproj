@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35304B8A23853871002CBACE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B8923853871002CBACE /* Tag.swift */; };
+		35304B8A23853871002CBACE /* TagDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B8923853871002CBACE /* TagDetails.swift */; };
 		35304B8D23854283002CBACE /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B8C23854283002CBACE /* UITableViewCell+Extensions.swift */; };
 		35304B8F238542AD002CBACE /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B8E238542AD002CBACE /* UITableView+Extensions.swift */; };
-		35304B9123855B51002CBACE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35304B9023855B51002CBACE /* Default-568h@2x.png */; };
-		35304B9423855F4F002CBACE /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B9323855F4F002CBACE /* UIViewController+Extensions.swift */; };
+		35304B9423855F4F002CBACE /* ShowsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B9323855F4F002CBACE /* ShowsError.swift */; };
 		35304B96238560C5002CBACE /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B95238560C5002CBACE /* TagsViewModel.swift */; };
 		35304B98238560E9002CBACE /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B97238560E9002CBACE /* TagsCell.swift */; };
 		35304B9A2385621A002CBACE /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B992385621A002CBACE /* LoadingCell.swift */; };
-		35304B9C2385650D002CBACE /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B9B2385650D002CBACE /* CGFloat+Extensions.swift */; };
+		35304B9C2385650D002CBACE /* CGFloat+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304B9B2385650D002CBACE /* CGFloat+Constants.swift */; };
 		35304BA223856686002CBACE /* TagDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304BA123856686002CBACE /* TagDetailsViewController.swift */; };
+		35304BA423856B99002CBACE /* TagDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304BA323856B99002CBACE /* TagDetailsViewModel.swift */; };
+		3532C3F2238602FB004A1B55 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532C3F1238602FB004A1B55 /* DateFormatter+Extensions.swift */; };
 		3592E387238405F000821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E386238405F000821B26 /* AppDelegate.swift */; };
 		3592E389238405F000821B26 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E388238405F000821B26 /* TagsViewController.swift */; };
 		3592E38E238405F100821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38D238405F100821B26 /* Assets.xcassets */; };
 		3592E391238405F100821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38F238405F100821B26 /* LaunchScreen.storyboard */; };
 		3592E39C238405F100821B26 /* TronaldDumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E39B238405F100821B26 /* TronaldDumpTests.swift */; };
 		3592E3A72384063300821B26 /* TagsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3A62384063300821B26 /* TagsFlowCoordinator.swift */; };
-		3592E3A9238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3592E3A8238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf */; };
 		3592E3AD2384084400821B26 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AC2384084400821B26 /* Networking.swift */; };
 		3592E3AF23840A0A00821B26 /* TagsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AE23840A0A00821B26 /* TagsService.swift */; };
 		3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3B223840ACF00821B26 /* TagListResponse.swift */; };
@@ -44,16 +44,17 @@
 
 /* Begin PBXFileReference section */
 		231AA187BB3AA685DADF4F24 /* Pods-TronaldDumpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDumpTests.release.xcconfig"; path = "Target Support Files/Pods-TronaldDumpTests/Pods-TronaldDumpTests.release.xcconfig"; sourceTree = "<group>"; };
-		35304B8923853871002CBACE /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		35304B8923853871002CBACE /* TagDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetails.swift; sourceTree = "<group>"; };
 		35304B8C23854283002CBACE /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		35304B8E238542AD002CBACE /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
-		35304B9023855B51002CBACE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		35304B9323855F4F002CBACE /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		35304B9323855F4F002CBACE /* ShowsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsError.swift; sourceTree = "<group>"; };
 		35304B95238560C5002CBACE /* TagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
 		35304B97238560E9002CBACE /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
 		35304B992385621A002CBACE /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
-		35304B9B2385650D002CBACE /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		35304B9B2385650D002CBACE /* CGFloat+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Constants.swift"; sourceTree = "<group>"; };
 		35304BA123856686002CBACE /* TagDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsViewController.swift; sourceTree = "<group>"; };
+		35304BA323856B99002CBACE /* TagDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsViewModel.swift; sourceTree = "<group>"; };
+		3532C3F1238602FB004A1B55 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		3592E383238405F000821B26 /* TronaldDump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TronaldDump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3592E386238405F000821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3592E388238405F000821B26 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		3592E39B238405F100821B26 /* TronaldDumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpTests.swift; sourceTree = "<group>"; };
 		3592E39D238405F100821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3592E3A62384063300821B26 /* TagsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsFlowCoordinator.swift; sourceTree = "<group>"; };
-		3592E3A8238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "DICE_-_iOS_-_Technical_Exercise.pdf"; sourceTree = "<group>"; };
 		3592E3AA2384077E00821B26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3592E3AC2384084400821B26 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		3592E3AE23840A0A00821B26 /* TagsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsService.swift; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 			children = (
 				35304B8C23854283002CBACE /* UITableViewCell+Extensions.swift */,
 				35304B8E238542AD002CBACE /* UITableView+Extensions.swift */,
-				35304B9323855F4F002CBACE /* UIViewController+Extensions.swift */,
-				35304B9B2385650D002CBACE /* CGFloat+Extensions.swift */,
+				35304B9B2385650D002CBACE /* CGFloat+Constants.swift */,
+				3532C3F1238602FB004A1B55 /* DateFormatter+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -122,6 +122,7 @@
 		35304B9223855F33002CBACE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				35304B9323855F4F002CBACE /* ShowsError.swift */,
 				3592E3A62384063300821B26 /* TagsFlowCoordinator.swift */,
 				35304B992385621A002CBACE /* LoadingCell.swift */,
 				35304B9E23856655002CBACE /* Tag Details */,
@@ -144,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				35304BA123856686002CBACE /* TagDetailsViewController.swift */,
+				35304BA323856B99002CBACE /* TagDetailsViewModel.swift */,
 			);
 			path = "Tag Details";
 			sourceTree = "<group>";
@@ -151,8 +153,6 @@
 		3592E37A238405F000821B26 = {
 			isa = PBXGroup;
 			children = (
-				35304B9023855B51002CBACE /* Default-568h@2x.png */,
-				3592E3A8238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf */,
 				3592E3AA2384077E00821B26 /* README.md */,
 				3592E385238405F000821B26 /* TronaldDump */,
 				3592E39A238405F100821B26 /* TronaldDumpTests */,
@@ -206,9 +206,9 @@
 		3592E3B023840AB100821B26 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				3592E3AE23840A0A00821B26 /* TagsService.swift */,
 				3592E3B223840ACF00821B26 /* TagListResponse.swift */,
 				3592E3B423840E4E00821B26 /* TagDetailsResponse.swift */,
+				3592E3AE23840A0A00821B26 /* TagsService.swift */,
 				3592E3AC2384084400821B26 /* Networking.swift */,
 			);
 			path = API;
@@ -217,7 +217,7 @@
 		3592E3B123840AB900821B26 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				35304B8923853871002CBACE /* Tag.swift */,
+				35304B8923853871002CBACE /* TagDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,8 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3592E391238405F100821B26 /* LaunchScreen.storyboard in Resources */,
-				35304B9123855B51002CBACE /* Default-568h@2x.png in Resources */,
-				3592E3A9238406A100821B26 /* DICE_-_iOS_-_Technical_Exercise.pdf in Resources */,
 				3592E38E238405F100821B26 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,8 +398,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35304B8A23853871002CBACE /* Tag.swift in Sources */,
-				35304B9C2385650D002CBACE /* CGFloat+Extensions.swift in Sources */,
+				3532C3F2238602FB004A1B55 /* DateFormatter+Extensions.swift in Sources */,
+				35304B8A23853871002CBACE /* TagDetails.swift in Sources */,
+				35304B9C2385650D002CBACE /* CGFloat+Constants.swift in Sources */,
 				35304B96238560C5002CBACE /* TagsViewModel.swift in Sources */,
 				3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */,
 				3592E3A72384063300821B26 /* TagsFlowCoordinator.swift in Sources */,
@@ -409,10 +408,11 @@
 				3592E3AF23840A0A00821B26 /* TagsService.swift in Sources */,
 				3592E389238405F000821B26 /* TagsViewController.swift in Sources */,
 				35304B8F238542AD002CBACE /* UITableView+Extensions.swift in Sources */,
-				35304B9423855F4F002CBACE /* UIViewController+Extensions.swift in Sources */,
+				35304B9423855F4F002CBACE /* ShowsError.swift in Sources */,
 				35304BA223856686002CBACE /* TagDetailsViewController.swift in Sources */,
 				3592E387238405F000821B26 /* AppDelegate.swift in Sources */,
 				35304B98238560E9002CBACE /* TagsCell.swift in Sources */,
+				35304BA423856B99002CBACE /* TagDetailsViewModel.swift in Sources */,
 				3592E3AD2384084400821B26 /* Networking.swift in Sources */,
 				3592E3B523840E4E00821B26 /* TagDetailsResponse.swift in Sources */,
 				35304B8D23854283002CBACE /* UITableViewCell+Extensions.swift in Sources */,

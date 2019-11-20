@@ -14,6 +14,6 @@ protocol ShowsError {
 
 extension UIViewController: ShowsError {
     func show(error: TronaldDumpError) {
-        
+        //todo: showError to the user
     }
 }

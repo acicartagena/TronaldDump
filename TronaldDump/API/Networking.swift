@@ -12,6 +12,7 @@ import BrightFutures
 enum TronaldDumpError: Error {
     case networking(Error)
     case decoding(Error)
+    case invalidURL(String)
     case noData
     case other(Error)
 }
@@ -21,6 +22,7 @@ class Networking {
     private lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.custom)
         return decoder
     }()
 
@@ -28,28 +30,27 @@ class Networking {
         let promise = Promise<T,TronaldDumpError>()
 
         session.dataTask(with: url) { [weak self] (data, _, error) in
-            if let error = error {
-                promise.failure(.networking(error))
-                return
-            }
+            DispatchQueue.main.async {
+                if let error = error {
+                    promise.failure(.networking(error))
+                    return
+                }
 
-            guard let data = data, let self = self else {
-                promise.failure(.noData)
-                return
-            }
+                guard let data = data, let strongSelf = self else {
+                    promise.failure(.noData)
+                    return
+                }
 
-            do {
-                let decoded = try self.decoder.decode(T.self, from: data)
-                promise.success(decoded)
-            } catch let error {
-                promise.failure(.decoding(error))
-                return
+                do {
+                    let decoded = try strongSelf.decoder.decode(T.self, from: data)
+                    promise.success(decoded)
+                } catch let error {
+                    promise.failure(.decoding(error))
+                    return
+                }
             }
-
         }
         .resume()
-
         return promise.future
     }
-
 }

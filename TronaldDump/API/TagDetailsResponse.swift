@@ -26,6 +26,13 @@ struct TagDetailsResponse: Decodable {
     }
 
     struct TagDetails: Decodable {
+        enum CodingKeys: String, CodingKey {
+            case embedded = "_embedded"
+            case tags
+            case value
+            case appearedAt
+        }
+
         struct Embedded: Decodable {
             let author: [Author]
             let source: [Source]
@@ -41,12 +48,36 @@ struct TagDetailsResponse: Decodable {
 
         let tags: [String]
         let value: String
-        let createdAt: Date
-        let _embedded: Embedded
+        let appearedAt: Date
+        let embedded: Embedded
     }
 
-    let _embedded: Embedded
-    let _links: Links
+    enum CodingKeys: String, CodingKey {
+        case embedded = "_embedded"
+        case links = "_links"
+    }
+
+    let links: Links
+    let embedded: Embedded
 }
 
+extension TagDetailsResponse {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        embedded = try container.decode(Embedded.self, forKey: .embedded)
+        links = try container.decode(Links.self, forKey: .links)
+    }
+}
+
+extension TagDetailsResponse.TagDetails {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        tags = try container.decode([String].self, forKey: .tags)
+        value = try container.decode(String.self, forKey: .value)
+        appearedAt = try container.decode(Date.self, forKey: .appearedAt)
+        embedded = try container.decode(Embedded.self, forKey: .embedded)
+    }
+}
 
