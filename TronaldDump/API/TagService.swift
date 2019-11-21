@@ -9,13 +9,13 @@
 import Foundation
 import BrightFutures
 
-protocol TagsActions {
+protocol TagActions {
     func getTags() -> Future<[TagName], TronaldDumpError>
     func getDetails(for tag: TagName) -> Future<TagDetails, TronaldDumpError>
     func getDetails(on next: String) -> Future<TagDetails, TronaldDumpError>
 }
 
-class TagsService: TagsActions {
+class TagService: TagActions {
     let networking = Networking()
 
     func getTags() -> Future<[TagName], TronaldDumpError> {

@@ -18,13 +18,13 @@ class TagsFlowCoordinator: TagsFlow {
     init() {
         navigationController = UINavigationController()
 
-        let viewModel = TagsViewModel(flow: self, actions: TagsService())
+        let viewModel = TagsViewModel(flow: self, actions: TagService())
         let viewController = TagsViewController(viewModel: viewModel)
         navigationController.viewControllers = [viewController]
     }
 
     func gotoDetails(for tag: TagName) {
-        let viewModel = TagDetailsViewModel(tagName: tag, tagsActions: TagsService())
+        let viewModel = TagDetailsViewModel(tagName: tag, tagsActions: TagService())
         let viewController = TagDetailsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }

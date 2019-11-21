@@ -9,7 +9,6 @@
 import Foundation
 
 struct TagListResponse: Decodable {
-
     enum CodingKeys: String, CodingKey {
         case embedded = "_embedded"
         case count

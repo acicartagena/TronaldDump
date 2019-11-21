@@ -9,7 +9,6 @@
 import Foundation
 
 struct TagDetailsResponse: Decodable {
-
     struct Embedded: Decodable {
         let tags: [TagDetails]
     }

@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 class LoadingCell: UITableViewCell {
-
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.startAnimating()

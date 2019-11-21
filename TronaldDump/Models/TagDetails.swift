@@ -60,4 +60,3 @@ extension TagDetails.Details.Source {
         self.url = url
     }
 }
-

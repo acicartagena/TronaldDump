@@ -19,13 +19,13 @@ class TagsViewModel {
     }
 
     private weak var flow: TagsFlow?
-    private let actions: TagsActions
+    private let actions: TagActions
 
     private(set) var items: [Item] = []
 
     weak var delegate: TagsViewModelDelegate?
 
-    init(flow: TagsFlow, actions: TagsActions) {
+    init(flow: TagsFlow, actions: TagActions) {
         self.flow = flow
         self.actions = actions
     }

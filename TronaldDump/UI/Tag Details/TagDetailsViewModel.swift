@@ -11,12 +11,17 @@ import Foundation
 protocol TagDetailsViewModelDelegate: AnyObject, ShowsError { }
 
 class TagDetailsViewModel {
+    enum Item {
+        case loading
+        case tag(TagName)
+    }
+
     let tagName: TagName
-    private let tagsActions: TagsActions
+    private let tagsActions: TagActions
     private var tagDetails: TagDetails?
     weak var delegate: TagDetailsViewModelDelegate?
 
-    init(tagName: TagName, tagsActions: TagsActions) {
+    init(tagName: TagName, tagsActions: TagActions) {
         self.tagName = tagName
         self.tagsActions = tagsActions
     }
