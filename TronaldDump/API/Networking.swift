@@ -17,6 +17,28 @@ enum TronaldDumpError: Error {
     case other(Error)
 }
 
+extension TronaldDumpError {
+    var displayString: String {
+        switch self {
+        case let .decoding(error):
+            print(error) //improvement: send error to logging/non-fatal error service
+            return NSLocalizedString("Decoding error", comment: "")
+        case let .invalidURL(url):
+            print("invalid URL: \(url)") //improvement: send error to logging/non-fatal error service
+            return NSLocalizedString("Invalid URL: \(url)", comment: "")
+        case let .networking(error):
+            print(error) //improvement: send error to logging/non-fatal error service
+            return NSLocalizedString("Networking error", comment: "")
+        case .noData:
+            print("no data") //improvement: send error to logging/non-fatal error service
+            return NSLocalizedString("Something went wrong...", comment: "")
+        case let .other(error):
+            print(error) //improvement: send error to logging/non-fatal error service
+            return NSLocalizedString("Something went wrong...", comment: "")
+        }
+    }
+}
+
 class Networking {
     let session = URLSession(configuration: .default)
     private lazy var decoder: JSONDecoder = {

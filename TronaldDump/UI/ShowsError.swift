@@ -14,6 +14,8 @@ protocol ShowsError {
 
 extension UIViewController: ShowsError {
     func show(error: TronaldDumpError) {
-        //todo: showError to the user
+        let alert = UIAlertController(title: error.displayString, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
