@@ -14,6 +14,7 @@ class TagDetailsViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.prefetchDataSource = self
 
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
@@ -57,10 +58,15 @@ class TagDetailsViewController: UIViewController {
 
 extension TagDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.items.count
+        return viewModel.itemsWithLoadingCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard !viewModel.isLoading(for: indexPath) else {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
+            return cell
+        }
+
         let item = viewModel.items[indexPath.row]
         switch item {
         case .loading:
@@ -78,6 +84,13 @@ extension TagDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.selectTag(at: indexPath.row)
+    }
+}
+
+extension TagDetailsViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let indexPath = indexPaths.first, viewModel.isLoading(for: indexPath) else { return }
+        viewModel.loadNext()
     }
 }
 

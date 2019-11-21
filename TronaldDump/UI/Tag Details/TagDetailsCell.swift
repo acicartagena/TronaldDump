@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TagDetailsCellViewModel {
+struct TagDetailsCellViewModel: Equatable {
 
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

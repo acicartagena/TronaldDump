@@ -10,7 +10,7 @@ import Foundation
 
 extension DateFormatter {
     static let decodeDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-    static let displayDateFormat = "dd MMM yyyy HH:mm a"
+    static let displayDateFormat = "dd MMM yyyy"
 
     static let custom: DateFormatter = {
         let formatter = DateFormatter()

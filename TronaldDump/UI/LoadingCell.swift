@@ -13,6 +13,7 @@ class LoadingCell: UITableViewCell {
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = false
         return activityIndicator
     }()
 
@@ -23,6 +24,11 @@ class LoadingCell: UITableViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        activityIndicator.startAnimating()
     }
 
     private func setupUI() {
