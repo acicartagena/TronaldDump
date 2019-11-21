@@ -18,14 +18,15 @@ class TagsViewModel {
         case tag(TagName)
     }
 
-    private weak var flow: TagsFlow?
+    private weak var flow: TagFlow?
     private let actions: TagActions
 
     private(set) var items: [Item] = []
 
+    let title = NSLocalizedString("Tags", comment: "")
     weak var delegate: TagsViewModelDelegate?
 
-    init(flow: TagsFlow, actions: TagActions) {
+    init(flow: TagFlow, actions: TagActions) {
         self.flow = flow
         self.actions = actions
     }

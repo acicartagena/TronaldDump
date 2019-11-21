@@ -18,21 +18,25 @@ class TagDetailsViewModel {
         case tagDetails(TagDetailsCellViewModel)
     }
 
-    let tagName: TagName
-    private let tagsActions: TagActions
+    private let tagName: TagName
+    private let actions: TagActions
     private var tagDetails: TagDetails?
+    private let flow: TagFlow
+
     weak var delegate: TagDetailsViewModelDelegate?
-
     private(set) var items: [Item] = []
+    let title: String
 
-    init(tagName: TagName, tagsActions: TagActions) {
+    init(tagName: TagName, flow: TagFlow, actions: TagActions) {
+        title = tagName
         self.tagName = tagName
-        self.tagsActions = tagsActions
+        self.actions = actions
+        self.flow = flow
     }
 
     func start() {
         items = [.loading]
-        tagsActions.getDetails(for: tagName).onComplete {[weak self] result in
+        actions.getDetails(for: tagName).onComplete {[weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case let .success(tagDetails):
@@ -44,5 +48,11 @@ class TagDetailsViewModel {
                 strongSelf.delegate?.show(error: error)
             }
         }
+    }
+
+    func selectTag(at index: Int) {
+        guard case let .tagDetails(details) = items[index],
+            let url = details.source else { return }
+            flow.gotoTagDetailsSource(url: url)
     }
 }

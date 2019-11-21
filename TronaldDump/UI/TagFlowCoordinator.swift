@@ -8,11 +8,12 @@
 
 import UIKit
 
-protocol TagsFlow: AnyObject {
+protocol TagFlow: AnyObject {
     func gotoDetails(for tag: TagName)
+    func gotoTagDetailsSource(url: URL)
 }
 
-class TagsFlowCoordinator: TagsFlow {
+class TagFlowCoordinator: TagFlow {
     let navigationController: UINavigationController
 
     init() {
@@ -24,8 +25,12 @@ class TagsFlowCoordinator: TagsFlow {
     }
 
     func gotoDetails(for tag: TagName) {
-        let viewModel = TagDetailsViewModel(tagName: tag, tagsActions: TagService())
+        let viewModel = TagDetailsViewModel(tagName: tag, flow: self, actions: TagService())
         let viewController = TagDetailsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func gotoTagDetailsSource(url: URL) {
+        UIApplication.shared.open(url)
     }
 }

@@ -24,7 +24,7 @@
 		3592E38E238405F100821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38D238405F100821B26 /* Assets.xcassets */; };
 		3592E391238405F100821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38F238405F100821B26 /* LaunchScreen.storyboard */; };
 		3592E39C238405F100821B26 /* TronaldDumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E39B238405F100821B26 /* TronaldDumpTests.swift */; };
-		3592E3A72384063300821B26 /* TagsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3A62384063300821B26 /* TagsFlowCoordinator.swift */; };
+		3592E3A72384063300821B26 /* TagFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3A62384063300821B26 /* TagFlowCoordinator.swift */; };
 		3592E3AD2384084400821B26 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AC2384084400821B26 /* Networking.swift */; };
 		3592E3AF23840A0A00821B26 /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AE23840A0A00821B26 /* TagService.swift */; };
 		3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3B223840ACF00821B26 /* TagListResponse.swift */; };
@@ -66,7 +66,7 @@
 		3592E397238405F100821B26 /* TronaldDumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TronaldDumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3592E39B238405F100821B26 /* TronaldDumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpTests.swift; sourceTree = "<group>"; };
 		3592E39D238405F100821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3592E3A62384063300821B26 /* TagsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsFlowCoordinator.swift; sourceTree = "<group>"; };
+		3592E3A62384063300821B26 /* TagFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFlowCoordinator.swift; sourceTree = "<group>"; };
 		3592E3AA2384077E00821B26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3592E3AC2384084400821B26 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		3592E3AE23840A0A00821B26 /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				35304B9323855F4F002CBACE /* ShowsError.swift */,
-				3592E3A62384063300821B26 /* TagsFlowCoordinator.swift */,
+				3592E3A62384063300821B26 /* TagFlowCoordinator.swift */,
 				35304B992385621A002CBACE /* LoadingCell.swift */,
 				35304B9E23856655002CBACE /* Tag Details */,
 				35304B9D2385664E002CBACE /* Tags */,
@@ -407,7 +407,7 @@
 				35304B9C2385650D002CBACE /* CGFloat+Constants.swift in Sources */,
 				35304B96238560C5002CBACE /* TagsViewModel.swift in Sources */,
 				3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */,
-				3592E3A72384063300821B26 /* TagsFlowCoordinator.swift in Sources */,
+				3592E3A72384063300821B26 /* TagFlowCoordinator.swift in Sources */,
 				35304B9A2385621A002CBACE /* LoadingCell.swift in Sources */,
 				3592E3AF23840A0A00821B26 /* TagService.swift in Sources */,
 				3592E389238405F000821B26 /* TagsViewController.swift in Sources */,

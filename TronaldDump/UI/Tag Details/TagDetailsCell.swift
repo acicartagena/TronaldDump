@@ -19,6 +19,7 @@ struct TagDetailsCellViewModel {
     let date: String
     let quote: String
     let author: String
+    let source: URL?
 
     init(tag: TagDetails.Details) {
         date = TagDetailsCellViewModel.dateFormatter.string(from: tag.appearedAt)
@@ -28,6 +29,7 @@ struct TagDetailsCellViewModel {
         } else {
             author = NSLocalizedString("- unknown", comment: "")
         }
+        source = tag.source?.url
     }
 }
 
@@ -56,6 +58,15 @@ class TagDetailsCell: UITableViewCell {
         return label
     }()
 
+    private let sourceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.adjustsFontForContentSizeCategory = true
+        label.textAlignment = .right
+        label.textColor = .blue
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -77,8 +88,11 @@ class TagDetailsCell: UITableViewCell {
             make.top.equalTo(dateLabel.snp.bottom).offset(CGFloat.between)
         }
 
-        contentView.addSubview(authorLabel)
-        authorLabel.snp.makeConstraints { make in
+        let stackView = UIStackView(arrangedSubviews: [authorLabel, sourceLabel])
+        stackView.axis = .vertical
+
+        contentView.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(CGFloat.margin)
             make.top.equalTo(quoteLabel.snp.bottom).offset(CGFloat.between)
             make.bottom.equalToSuperview().inset(CGFloat.margin)
@@ -89,5 +103,11 @@ class TagDetailsCell: UITableViewCell {
         dateLabel.text = viewModel.date
         quoteLabel.text = viewModel.quote
         authorLabel.text = viewModel.author
+        if let source = viewModel.source {
+            sourceLabel.text = source.host ?? NSLocalizedString("source", comment: "")
+            sourceLabel.isHidden = false
+        } else {
+            sourceLabel.isHidden = true
+        }
     }
 }

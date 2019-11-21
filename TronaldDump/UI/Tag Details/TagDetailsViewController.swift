@@ -45,7 +45,7 @@ class TagDetailsViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = viewModel.tagName
+        title = viewModel.title
         view.addSubview(tableView)
 
         tableView.snp.makeConstraints { make in
@@ -75,7 +75,10 @@ extension TagDetailsViewController: UITableViewDataSource {
 }
 
 extension TagDetailsViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.selectTag(at: indexPath.row)
+    }
 }
 
 extension TagDetailsViewController: TagDetailsViewModelDelegate {

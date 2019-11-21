@@ -47,7 +47,7 @@ class TagsViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = NSLocalizedString("Tronald Dump Tags", comment: "")
+        title = viewModel.title
         view.addSubview(tableView)
 
         tableView.snp.makeConstraints { make in
