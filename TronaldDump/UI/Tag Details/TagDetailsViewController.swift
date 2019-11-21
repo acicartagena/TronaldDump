@@ -10,6 +10,21 @@ import UIKit
 
 class TagDetailsViewController: UIViewController {
 
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableFooterView = UIView()
+
+        tableView.register(TagDetailsCell.self)
+        tableView.register(LoadingCell.self)
+
+        return tableView
+    }()
+
     let viewModel: TagDetailsViewModel
     
     init(viewModel: TagDetailsViewModel) {
@@ -24,24 +39,47 @@ class TagDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+
+        setupUI()
         viewModel.start()
     }
-    
 
-    /*
-    // MARK: - Navigation
+    private func setupUI() {
+        title = viewModel.tagName
+        view.addSubview(tableView)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
     }
-    */
+
+}
+
+extension TagDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = viewModel.items[indexPath.row]
+        switch item {
+        case .loading:
+            let cell =  tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
+            return cell
+        case .tagDetails(let viewModel):
+            let cell = tableView.dequeueReusableCell(withIdentifier: TagDetailsCell.reuseIdentifier) as! TagDetailsCell
+            cell.setup(with: viewModel)
+            return cell
+        }
+    }
+}
+
+extension TagDetailsViewController: UITableViewDelegate {
 
 }
 
 extension TagDetailsViewController: TagDetailsViewModelDelegate {
-    
+    func reload() {
+        tableView.reloadData()
+    }
 }
