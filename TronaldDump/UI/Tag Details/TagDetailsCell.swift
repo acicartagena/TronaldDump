@@ -44,6 +44,7 @@ class TagDetailsCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
 
@@ -51,6 +52,7 @@ class TagDetailsCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.adjustsFontForContentSizeCategory = true
+        label.textAlignment = .right
         return label
     }()
 
@@ -66,18 +68,18 @@ class TagDetailsCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(dateLabel)
         dateLabel.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview().offset(CGFloat.margin)
+            make.leading.top.trailing.equalToSuperview().inset(CGFloat.margin)
         }
 
         contentView.addSubview(quoteLabel)
         quoteLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().offset(CGFloat.margin)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.margin)
             make.top.equalTo(dateLabel.snp.bottom).offset(CGFloat.between)
         }
 
         contentView.addSubview(authorLabel)
         authorLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().offset(CGFloat.margin)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.margin)
             make.top.equalTo(quoteLabel.snp.bottom).offset(CGFloat.between)
             make.bottom.equalToSuperview().inset(CGFloat.margin)
         }
