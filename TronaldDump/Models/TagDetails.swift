@@ -29,14 +29,12 @@ struct TagDetails {
 
     let details: [Details]
     let nextLink: String?
-    let total: Int
 }
 
 extension TagDetails {
     init(response: TagDetailsResponse) {
         details = response.embedded.tags.map { TagDetails.Details(response: $0) }
         nextLink = response.links.next?.href
-        total = response.total
     }
 }
 

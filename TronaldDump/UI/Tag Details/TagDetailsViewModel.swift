@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BrightFutures
 
 protocol TagDetailsViewModelDelegate: AnyObject, ShowsError {
     func reload()
@@ -24,6 +25,9 @@ class TagDetailsViewModel {
     private var nextLink: String?
     private var initialLoading = true
 
+    private let threadingModel: ThreadingModel
+    private var context: ExecutionContext { return threadingModel() }
+
     weak var delegate: TagDetailsViewModelDelegate?
     private(set) var items: [Item] = []
     let title: String
@@ -34,15 +38,16 @@ class TagDetailsViewModel {
         return items.count + addLoading
     }
 
-    init(tagName: TagName, flow: TagFlow, actions: TagActions) {
+    init(tagName: TagName, flow: TagFlow, actions: TagActions, threadingModel: @escaping ThreadingModel = DefaultThreadingModel) {
         title = tagName
         self.tagName = tagName
         self.actions = actions
         self.flow = flow
+        self.threadingModel = threadingModel
     }
 
     func start() {
-        actions.getDetails(for: tagName).onComplete {[weak self] result in
+        actions.getDetails(for: tagName).onComplete(context) {[weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case let .success(tagDetails):
@@ -66,7 +71,7 @@ class TagDetailsViewModel {
 
     func loadNext() {
         guard let next = nextLink else { return }
-        actions.getDetails(on: next).onComplete {[weak self] result in
+        actions.getDetails(on: next).onComplete(context) {[weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case let .success(tagDetails):

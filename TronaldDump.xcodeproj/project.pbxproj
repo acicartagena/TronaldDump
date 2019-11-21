@@ -23,12 +23,16 @@
 		3592E389238405F000821B26 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E388238405F000821B26 /* TagsViewController.swift */; };
 		3592E38E238405F100821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38D238405F100821B26 /* Assets.xcassets */; };
 		3592E391238405F100821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38F238405F100821B26 /* LaunchScreen.storyboard */; };
-		3592E39C238405F100821B26 /* TronaldDumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E39B238405F100821B26 /* TronaldDumpTests.swift */; };
 		3592E3A72384063300821B26 /* TagFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3A62384063300821B26 /* TagFlowCoordinator.swift */; };
 		3592E3AD2384084400821B26 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AC2384084400821B26 /* Networking.swift */; };
 		3592E3AF23840A0A00821B26 /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3AE23840A0A00821B26 /* TagService.swift */; };
 		3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3B223840ACF00821B26 /* TagListResponse.swift */; };
 		3592E3B523840E4E00821B26 /* TagDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E3B423840E4E00821B26 /* TagDetailsResponse.swift */; };
+		35A49EC62386B6ED0079502A /* TagDetailsCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A49EC52386B6ED0079502A /* TagDetailsCellViewModelTests.swift */; };
+		35A49EC82386B8B50079502A /* TagsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A49EC72386B8B50079502A /* TagsViewModelTests.swift */; };
+		35A49ECA2386B9030079502A /* TagFlowSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A49EC92386B9030079502A /* TagFlowSpy.swift */; };
+		35A49ECC2386B95F0079502A /* TagActionsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A49ECB2386B95F0079502A /* TagActionsStub.swift */; };
+		35A49ECE2386BCE40079502A /* TagDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A49ECD2386BCE40079502A /* TagDetailsViewModelTests.swift */; };
 		3A5A0726A9076ED60A5C1083 /* Pods_TronaldDump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7428C967C20FDFE55AF4F0FC /* Pods_TronaldDump.framework */; };
 		AA3B43E8FA463AECA47F58F6 /* Pods_TronaldDumpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD5F9727868BC202CA4DF2F /* Pods_TronaldDumpTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,7 +68,6 @@
 		3592E390238405F100821B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3592E392238405F100821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3592E397238405F100821B26 /* TronaldDumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TronaldDumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3592E39B238405F100821B26 /* TronaldDumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpTests.swift; sourceTree = "<group>"; };
 		3592E39D238405F100821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3592E3A62384063300821B26 /* TagFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFlowCoordinator.swift; sourceTree = "<group>"; };
 		3592E3AA2384077E00821B26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -72,6 +75,12 @@
 		3592E3AE23840A0A00821B26 /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		3592E3B223840ACF00821B26 /* TagListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListResponse.swift; sourceTree = "<group>"; };
 		3592E3B423840E4E00821B26 /* TagDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsResponse.swift; sourceTree = "<group>"; };
+		35A49EC52386B6ED0079502A /* TagDetailsCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsCellViewModelTests.swift; sourceTree = "<group>"; };
+		35A49EC72386B8B50079502A /* TagsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewModelTests.swift; sourceTree = "<group>"; };
+		35A49EC92386B9030079502A /* TagFlowSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFlowSpy.swift; sourceTree = "<group>"; };
+		35A49ECB2386B95F0079502A /* TagActionsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagActionsStub.swift; sourceTree = "<group>"; };
+		35A49ECD2386BCE40079502A /* TagDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		35A49ECF2386C1BB0079502A /* TronaldDumpTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TronaldDumpTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BD5F9727868BC202CA4DF2F /* Pods_TronaldDumpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TronaldDumpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFDECF8AB30AC50A9ED328D /* Pods-TronaldDump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDump.debug.xcconfig"; path = "Target Support Files/Pods-TronaldDump/Pods-TronaldDump.debug.xcconfig"; sourceTree = "<group>"; };
 		7428C967C20FDFE55AF4F0FC /* Pods_TronaldDump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TronaldDump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,8 +199,13 @@
 		3592E39A238405F100821B26 /* TronaldDumpTests */ = {
 			isa = PBXGroup;
 			children = (
-				3592E39B238405F100821B26 /* TronaldDumpTests.swift */,
 				3592E39D238405F100821B26 /* Info.plist */,
+				35A49EC92386B9030079502A /* TagFlowSpy.swift */,
+				35A49ECF2386C1BB0079502A /* TronaldDumpTests-Bridging-Header.h */,
+				35A49ECB2386B95F0079502A /* TagActionsStub.swift */,
+				35A49EC52386B6ED0079502A /* TagDetailsCellViewModelTests.swift */,
+				35A49EC72386B8B50079502A /* TagsViewModelTests.swift */,
+				35A49ECD2386BCE40079502A /* TagDetailsViewModelTests.swift */,
 			);
 			path = TronaldDumpTests;
 			sourceTree = "<group>";
@@ -290,6 +304,7 @@
 					};
 					3592E396238405F100821B26 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3592E382238405F000821B26;
 					};
 				};
@@ -427,7 +442,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3592E39C238405F100821B26 /* TronaldDumpTests.swift in Sources */,
+				35A49ECE2386BCE40079502A /* TagDetailsViewModelTests.swift in Sources */,
+				35A49EC62386B6ED0079502A /* TagDetailsCellViewModelTests.swift in Sources */,
+				35A49ECA2386B9030079502A /* TagFlowSpy.swift in Sources */,
+				35A49ECC2386B95F0079502A /* TagActionsStub.swift in Sources */,
+				35A49EC82386B8B50079502A /* TagsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +634,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VWW575E2Q5;
 				INFOPLIST_FILE = TronaldDumpTests/Info.plist;
@@ -625,6 +645,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.TronaldDumpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TronaldDumpTests/TronaldDumpTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TronaldDump.app/TronaldDump";
@@ -637,6 +659,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VWW575E2Q5;
 				INFOPLIST_FILE = TronaldDumpTests/Info.plist;
@@ -647,6 +670,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.TronaldDumpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TronaldDumpTests/TronaldDumpTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TronaldDump.app/TronaldDump";

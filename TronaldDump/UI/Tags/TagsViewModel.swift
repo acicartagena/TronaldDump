@@ -7,33 +7,37 @@
 //
 
 import Foundation
+import BrightFutures
 
 protocol TagsViewModelDelegate: AnyObject, ShowsError {
     func reload()
 }
 
 class TagsViewModel {
-    enum Item {
+    enum Item: Equatable {
         case loading
         case tag(TagName)
     }
 
     private weak var flow: TagFlow?
     private let actions: TagActions
+    private let threadingModel: ThreadingModel
+    private var context: ExecutionContext { return threadingModel() }
 
     private(set) var items: [Item] = []
 
     let title = NSLocalizedString("Tags", comment: "")
     weak var delegate: TagsViewModelDelegate?
 
-    init(flow: TagFlow, actions: TagActions) {
+    init(flow: TagFlow, actions: TagActions, threadingModel: @escaping ThreadingModel = DefaultThreadingModel) {
         self.flow = flow
         self.actions = actions
+        self.threadingModel = threadingModel
+        items = [.loading]
     }
 
     func start() {
-        items = [.loading]
-        actions.getTags().onComplete { [weak self] result in
+        actions.getTags().onComplete(context) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case let .success(tags):

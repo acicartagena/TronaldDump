@@ -20,6 +20,7 @@ struct TagDetailsCellViewModel: Equatable {
     let quote: String
     let author: String
     let source: URL?
+    let sourceText: String?
 
     init(tag: TagDetails.Details) {
         date = TagDetailsCellViewModel.dateFormatter.string(from: tag.appearedAt)
@@ -29,7 +30,9 @@ struct TagDetailsCellViewModel: Equatable {
         } else {
             author = NSLocalizedString("- unknown", comment: "")
         }
+
         source = tag.source?.url
+        sourceText = tag.source?.url.host
     }
 }
 
@@ -103,8 +106,8 @@ class TagDetailsCell: UITableViewCell {
         dateLabel.text = viewModel.date
         quoteLabel.text = viewModel.quote
         authorLabel.text = viewModel.author
-        if let source = viewModel.source {
-            sourceLabel.text = source.host ?? NSLocalizedString("source", comment: "")
+        if let source = viewModel.sourceText {
+            sourceLabel.text = source
             sourceLabel.isHidden = false
         } else {
             sourceLabel.isHidden = true
