@@ -79,7 +79,7 @@ class TagDetailsViewModel {
                 let newItems = tagDetails.details.map { Item.tagDetails(TagDetailsCellViewModel(tag: $0)) }
                 strongSelf.items.append(contentsOf: newItems)
                 strongSelf.nextLink = tagDetails.nextLink
-                strongSelf.delegate?.reload()
+                strongSelf.delegate?.reload() //improvement: better way of dealing with adding items instead of reloading
             case let .failure(error):
                 strongSelf.delegate?.show(error: error)
             }
