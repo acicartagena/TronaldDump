@@ -6,73 +6,62 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import BrightFutures
 import Foundation
 
-enum TronaldDumpError: Error {
-    case networking(Error)
-    case decoding(Error)
-    case invalidURL(String)
-    case noData
-    case other(Error)
+struct HTTPError {
+    let description: String
+    let statusCode: Int
 }
 
-extension TronaldDumpError {
-    var displayString: String {
+extension HTTPError {
+    init(response: HTTPURLResponse) {
+        let statusCode = response.statusCode
+        self.statusCode = statusCode
+        description = HTTPURLResponse.localizedString(forStatusCode: statusCode)
+    }
+}
+
+enum NetworkingError: Error {
+    case request(Error)
+    case httpError(HTTPError)
+    case noData
+}
+
+extension NetworkingError {
+    var localizedDescription: String {
         switch self {
-        case let .decoding(error):
-            print(error) // improvement: send error to logging/non-fatal error service
-            return NSLocalizedString("Decoding error", comment: "")
-        case let .invalidURL(url):
-            print("invalid URL: \(url)") // improvement: send error to logging/non-fatal error service
-            return NSLocalizedString("Invalid URL: \(url)", comment: "")
-        case let .networking(error):
-            print(error) // improvement: send error to logging/non-fatal error service
-            return NSLocalizedString("Networking error", comment: "")
-        case .noData:
-            print("no data") // improvement: send error to logging/non-fatal error service
-            return NSLocalizedString("Something went wrong...", comment: "")
-        case let .other(error):
-            print(error) // improvement: send error to logging/non-fatal error service
-            return NSLocalizedString("Something went wrong...", comment: "")
+        case let .request(error): return error.localizedDescription
+        case let .httpError(error): return error.description
+        case .noData: return NSLocalizedString("No data found", comment: "")
         }
     }
 }
 
 class Networking {
     let session = URLSession(configuration: .default)
-    private lazy var decoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.custom)
-        return decoder
-    }()
 
-    func get<T: Decodable>(url: URL) -> Future<T, TronaldDumpError> {
-        let promise = Promise<T, TronaldDumpError>()
-
-        session.dataTask(with: url) { [weak self] data, _, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    promise.failure(.networking(error))
-                    return
-                }
-
-                guard let data = data, let strongSelf = self else {
-                    promise.failure(.noData)
-                    return
-                }
-
-                do {
-                    let decoded = try strongSelf.decoder.decode(T.self, from: data)
-                    promise.success(decoded)
-                } catch {
-                    promise.failure(.decoding(error))
-                    return
-                }
+    func request(urlRequest: URLRequest, completionHandler: @escaping (Result<Data, NetworkingError>) -> Void) {
+        session.dataTask(with: urlRequest) { data, response, error in
+            if let error = error {
+                completionHandler(.failure(.request(error)))
+                return
             }
+
+            let validStatusCodes = 200 ..< 300
+            if let httpResponse = response as? HTTPURLResponse,
+                !validStatusCodes.contains(httpResponse.statusCode) {
+                let httpError = HTTPError(response: httpResponse)
+                completionHandler(.failure(.httpError(httpError)))
+                return
+            }
+
+            guard let data = data else {
+                completionHandler(.failure(.noData))
+                return
+            }
+
+            return completionHandler(.success(data))
         }
         .resume()
-        return promise.future
     }
 }
