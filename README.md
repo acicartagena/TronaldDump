@@ -17,7 +17,11 @@
 - FlowCoordinator is used to go from different screens and pass data.
 - Flow is passed to the ViewModel. This is an abstraction of the FlowCoordinator, which can be used to mock in unit tests. ViewModel calls to flow to change screens.
 - ViewModel communicates with the API via Actions. Actions is an abstraction to Services. This can be used to mock in unit tests as well.
-- Responses are data transfer objects used to decode the API Response. Services converts Responses to the Models that the ViewModels would use for the data.  This decouples API shape changes to Model changes.
+- Services converts API Responses to the Models that the ViewModels would use for the data.
+
+### API
+- Responses are data transfer objects used to decode the API Response.  This decouples API shape changes to Model changes.
+- The goal of decoupling is that the API group can be moved to a different famework
 
 ## 3rd party libraries
 - Uses Cocoapods as a dependency manager
