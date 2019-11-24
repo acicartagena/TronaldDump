@@ -6,12 +6,11 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import Foundation
 import BrightFutures
+import Foundation
 @testable import TronaldDump
 
 class TagActionsStub: TagActions {
-
     var getTagsResult: Result<[TagName], TronaldDumpError>!
     var getDetailsForTag: Result<TagDetails, TronaldDumpError>!
     var getDetailsOnNext: Result<TagDetails, TronaldDumpError>!
@@ -20,11 +19,11 @@ class TagActionsStub: TagActions {
         return Future(result: getTagsResult)
     }
 
-    func getDetails(for tag: TagName) -> Future<TagDetails, TronaldDumpError> {
+    func getDetails(for _: TagName) -> Future<TagDetails, TronaldDumpError> {
         return Future(result: getDetailsForTag)
     }
 
-    func getDetails(on next: String) -> Future<TagDetails, TronaldDumpError> {
+    func getDetails(on _: String) -> Future<TagDetails, TronaldDumpError> {
         return Future(result: getDetailsOnNext)
     }
 }

@@ -16,7 +16,7 @@ struct TagDetails {
             let name: String
         }
 
-        struct Source: Decodable  {
+        struct Source: Decodable {
             let url: URL
         }
 
@@ -56,7 +56,7 @@ extension TagDetails.Details.Author {
 
 extension TagDetails.Details.Source {
     init?(response: TagDetailsResponse.TagDetails.Source) {
-        guard let url =  URL(string: response.url) else { return nil }
+        guard let url = URL(string: response.url) else { return nil }
         self.url = url
     }
 }

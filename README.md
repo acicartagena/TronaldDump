@@ -1,5 +1,8 @@
 #  TronaldDump
 
+## Build & Run
+- Xcode 10, Swift 5
+
 ## App
 - gets the tags on load from the API
 - when a tag gets selected, the details screen gets shown
@@ -18,3 +21,7 @@
 - Bright Futures for better handling of asynchronous calls. This can be replaced by using delegates or the completion handlers / blocks.
 - SnapKit is used as a DSL for ease in doing autolayout, this can be replaced by doing AutoLayout contraints natively.
 
+## Improvements
+- Some improvements are listed as comments
+- UITesting
+- Include more information on the details

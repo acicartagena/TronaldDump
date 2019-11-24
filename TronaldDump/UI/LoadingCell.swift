@@ -6,8 +6,8 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class LoadingCell: UITableViewCell {
     private let activityIndicator: UIActivityIndicatorView = {
@@ -22,7 +22,7 @@ class LoadingCell: UITableViewCell {
         setupUI()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

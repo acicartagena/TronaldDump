@@ -9,7 +9,6 @@
 import UIKit
 
 struct TagDetailsCellViewModel: Equatable {
-
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = DateFormatter.displayDateFormat
@@ -37,7 +36,6 @@ struct TagDetailsCellViewModel: Equatable {
 }
 
 class TagDetailsCell: UITableViewCell {
-
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
@@ -75,7 +73,7 @@ class TagDetailsCell: UITableViewCell {
         setupUI()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

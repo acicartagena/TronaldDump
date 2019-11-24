@@ -6,12 +6,11 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import XCTest
 import BrightFutures
 @testable import TronaldDump
+import XCTest
 
 class TagsViewModelTests: XCTestCase {
-
     var delegateCalls: [String] = []
     var flow: TagFlowSpy!
     var actions: TagActionsStub!

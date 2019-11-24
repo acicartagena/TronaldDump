@@ -6,12 +6,11 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import UIKit
 import BrightFutures
 import SnapKit
+import UIKit
 
 class TagsViewController: UIViewController {
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -34,11 +33,11 @@ class TagsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,7 +56,7 @@ class TagsViewController: UIViewController {
 }
 
 extension TagsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.items.count
     }
 
@@ -65,9 +64,9 @@ extension TagsViewController: UITableViewDataSource {
         let item = viewModel.items[indexPath.row]
         switch item {
         case .loading:
-            let cell =  tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
             return cell
-        case .tag(let tagName):
+        case let .tag(tagName):
             let cell = tableView.dequeueReusableCell(withIdentifier: TagCell.reuseIdentifier) as! TagCell
             cell.setup(with: tagName)
             return cell
@@ -88,4 +87,3 @@ extension TagsViewController: TagsViewModelDelegate {
         tableView.reloadData()
     }
 }
-

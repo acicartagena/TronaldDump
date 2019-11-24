@@ -6,8 +6,8 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import Foundation
 import BrightFutures
+import Foundation
 
 protocol TagDetailsViewModelDelegate: AnyObject, ShowsError {
     func reload()
@@ -47,7 +47,7 @@ class TagDetailsViewModel {
     }
 
     func start() {
-        actions.getDetails(for: tagName).onComplete(context) {[weak self] result in
+        actions.getDetails(for: tagName).onComplete(context) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case let .success(tagDetails):
@@ -71,7 +71,7 @@ class TagDetailsViewModel {
 
     func loadNext() {
         guard let next = nextLink else { return }
-        actions.getDetails(on: next).onComplete(context) {[weak self] result in
+        actions.getDetails(on: next).onComplete(context) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case let .success(tagDetails):
@@ -79,7 +79,7 @@ class TagDetailsViewModel {
                 let newItems = tagDetails.details.map { Item.tagDetails(TagDetailsCellViewModel(tag: $0)) }
                 strongSelf.items.append(contentsOf: newItems)
                 strongSelf.nextLink = tagDetails.nextLink
-                strongSelf.delegate?.reload() //improvement: better way of dealing with adding items instead of reloading
+                strongSelf.delegate?.reload() // improvement: better way of dealing with adding items instead of reloading
             case let .failure(error):
                 strongSelf.delegate?.show(error: error)
             }
@@ -89,7 +89,6 @@ class TagDetailsViewModel {
     func selectTag(at index: Int) {
         guard case let .tagDetails(details) = items[index],
             let url = details.source else { return }
-            flow.gotoTagDetailsSource(url: url)
+        flow.gotoTagDetailsSource(url: url)
     }
-
 }

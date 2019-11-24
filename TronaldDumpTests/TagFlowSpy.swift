@@ -10,7 +10,6 @@ import Foundation
 @testable import TronaldDump
 
 class TagFlowSpy: TagFlow {
-
     var calls: [String] = []
 
     func gotoDetails(for tag: TagName) {

@@ -6,11 +6,10 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import XCTest
 @testable import TronaldDump
+import XCTest
 
 class TagDetailsCellViewModelTests: XCTestCase {
-
     func testCompleteFomatting() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = DateFormatter.displayDateFormat

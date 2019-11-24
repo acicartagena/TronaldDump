@@ -9,7 +9,6 @@
 import UIKit
 
 class TagDetailsViewController: UIViewController {
-
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -27,14 +26,14 @@ class TagDetailsViewController: UIViewController {
     }()
 
     let viewModel: TagDetailsViewModel
-    
+
     init(viewModel: TagDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -53,26 +52,25 @@ class TagDetailsViewController: UIViewController {
             make.leading.trailing.top.bottom.equalToSuperview()
         }
     }
-
 }
 
 extension TagDetailsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.itemsWithLoadingCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard !viewModel.isLoading(for: indexPath) else {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
             return cell
         }
 
         let item = viewModel.items[indexPath.row]
         switch item {
         case .loading:
-            let cell =  tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingCell.reuseIdentifier) as! LoadingCell
             return cell
-        case .tagDetails(let viewModel):
+        case let .tagDetails(viewModel):
             let cell = tableView.dequeueReusableCell(withIdentifier: TagDetailsCell.reuseIdentifier) as! TagDetailsCell
             cell.setup(with: viewModel)
             return cell
@@ -88,7 +86,7 @@ extension TagDetailsViewController: UITableViewDelegate {
 }
 
 extension TagDetailsViewController: UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+    func tableView(_: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         guard let indexPath = indexPaths.first, viewModel.isLoading(for: indexPath) else { return }
         viewModel.loadNext()
     }

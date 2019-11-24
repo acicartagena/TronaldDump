@@ -6,8 +6,8 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import Foundation
 import BrightFutures
+import Foundation
 
 protocol TagsViewModelDelegate: AnyObject, ShowsError {
     func reload()

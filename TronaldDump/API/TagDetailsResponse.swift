@@ -17,6 +17,7 @@ struct TagDetailsResponse: Decodable {
         struct Link: Decodable {
             let href: String
         }
+
         let prev: Link?
         let next: Link?
         let first: Link?
@@ -41,7 +42,7 @@ struct TagDetailsResponse: Decodable {
             let name: String
         }
 
-        struct Source: Decodable  {
+        struct Source: Decodable {
             let url: String
         }
 
@@ -82,4 +83,3 @@ extension TagDetailsResponse.TagDetails {
         embedded = try container.decode(Embedded.self, forKey: .embedded)
     }
 }
-

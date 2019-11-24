@@ -6,12 +6,11 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 //
 
-import XCTest
 import BrightFutures
 @testable import TronaldDump
+import XCTest
 
 class TagDetailsViewModelTests: XCTestCase {
-
     var delegateCalls: [String] = []
     var flow: TagFlowSpy!
     var actions: TagActionsStub!
@@ -34,7 +33,7 @@ class TagDetailsViewModelTests: XCTestCase {
 
         XCTAssertEqual(subject.items, [])
         XCTAssertEqual(subject.itemsWithLoadingCount, 1)
-        
+
         XCTAssertTrue(subject.isLoading(for: IndexPath(row: 2, section: 0)))
         XCTAssertTrue(subject.isLoading(for: IndexPath(row: 0, section: 0)))
     }
@@ -44,7 +43,7 @@ class TagDetailsViewModelTests: XCTestCase {
 
         let subject = getSubject(for: "tag1")
         subject.start()
-        
+
         XCTAssertEqual(subject.items, [])
         XCTAssertEqual(delegateCalls, ["showError: noData"])
     }
@@ -69,10 +68,10 @@ class TagDetailsViewModelTests: XCTestCase {
 
     func testStartNoNext() {
         let tagDetails = TagDetails.Details(tags: ["tag"],
-                                                      value: "Hello",
-                                                      appearedAt: Date(),
-                                                      author: TagDetails.Details.Author(name: "Me, myself & I"),
-                                                      source: TagDetails.Details.Source(url: URL(string: "http://www.google.com")!))
+                                            value: "Hello",
+                                            appearedAt: Date(),
+                                            author: TagDetails.Details.Author(name: "Me, myself & I"),
+                                            source: TagDetails.Details.Source(url: URL(string: "http://www.google.com")!))
         actions.getDetailsForTag = .success(TagDetails(details: [tagDetails], nextLink: nil))
 
         let subject = getSubject(for: "tag1")
@@ -115,10 +114,10 @@ class TagDetailsViewModelTests: XCTestCase {
                                             author: TagDetails.Details.Author(name: "Me, myself & I"),
                                             source: TagDetails.Details.Source(url: URL(string: "http://www.google.com")!))
         let nextTagDetails = TagDetails.Details(tags: ["tag2"],
-                                            value: "Next",
-                                            appearedAt: Date(),
-                                            author: TagDetails.Details.Author(name: "anonymous"),
-                                            source: TagDetails.Details.Source(url: URL(string: "http://www.google.com")!))
+                                                value: "Next",
+                                                appearedAt: Date(),
+                                                author: TagDetails.Details.Author(name: "anonymous"),
+                                                source: TagDetails.Details.Source(url: URL(string: "http://www.google.com")!))
 
         actions.getDetailsForTag = .success(TagDetails(details: [tagDetails], nextLink: "next.com"))
         actions.getDetailsOnNext = .success(TagDetails(details: [nextTagDetails], nextLink: nil))
@@ -147,7 +146,6 @@ class TagDetailsViewModelTests: XCTestCase {
 
         XCTAssertEqual(flow.calls, ["gotoTagDetailsSource: \(URL(string: "http://www.google.com")!)"])
     }
-
 }
 
 extension TagDetailsViewModelTests: TagDetailsViewModelDelegate {
