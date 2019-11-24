@@ -30,9 +30,15 @@ enum NetworkingError: Error {
 extension NetworkingError {
     var localizedDescription: String {
         switch self {
-        case let .request(error): return error.localizedDescription
-        case let .httpError(error): return error.description
-        case .noData: return NSLocalizedString("No data found", comment: "")
+        case let .request(error):
+            print(error) // improvement: send error over to a logging/monitoring service
+            return error.localizedDescription
+        case let .httpError(error):
+            print(error) // improvement: send error over to a logging/monitoring service
+            return error.description
+        case .noData:
+            print("No data found") // improvement: send error over to a logging/monitoring service
+            return NSLocalizedString("No data found", comment: "")
         }
     }
 }

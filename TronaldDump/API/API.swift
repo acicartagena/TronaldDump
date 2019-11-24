@@ -22,9 +22,15 @@ enum APIError: Error {
 extension APIError {
     var localizedDescription: String {
         switch self {
-        case let .networking(error): return error.localizedDescription
-        case let .decoding(error): return error.localizedDescription
-        case let .invalidURL(error): return NSLocalizedString("Invalid url: \(error)", comment: "")
+        case let .networking(error):
+            print(error) // improvement: send error over to a logging/monitoring service
+            return error.localizedDescription
+        case let .decoding(error):
+            print(error) // improvement: send error over to a logging/monitoring service
+            return error.localizedDescription
+        case let .invalidURL(error):
+            print("Invalid url: \(error)") // improvement: send error over to a logging/monitoring service
+            return NSLocalizedString("Invalid url: \(error)", comment: "")
         }
     }
 }
