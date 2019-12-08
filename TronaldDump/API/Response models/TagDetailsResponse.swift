@@ -1,10 +1,4 @@
-//
-//  TagDetails.swift
-//  TronaldDump
-//
-//  Created by Angela Cartagena on 19/11/19.
 //  Copyright © 2019 ACartagena. All rights reserved.
-//
 
 import Foundation
 
@@ -55,10 +49,8 @@ struct TagDetailsResponse: Decodable {
     enum CodingKeys: String, CodingKey {
         case embedded = "_embedded"
         case links = "_links"
-        case total
     }
 
-    let total: Int
     let links: Links
     let embedded: Embedded
 }
@@ -69,7 +61,6 @@ extension TagDetailsResponse {
 
         embedded = try container.decode(Embedded.self, forKey: .embedded)
         links = try container.decode(Links.self, forKey: .links)
-        total = try container.decode(Int.self, forKey: .total)
     }
 }
 

@@ -10,16 +10,14 @@ import Foundation
 
 /// The type that all invalidation tokens conform to
 public protocol InvalidationTokenType {
-    
     /// Indicates if the token is invalid
-    var isInvalid : Bool { get }
-    
+    var isInvalid: Bool { get }
+
     /// The future will fail with .InvalidationTokenInvalidated when the token invalidates
     var future: Future<NoValue, BrightFuturesError<Never>> { get }
-    
+
     /// This context executes as long as the token is valid. If the token is invalid, the given blocks are discarded
     func validContext(_ parentContext: @escaping ExecutionContext) -> ExecutionContext
-
 }
 
 extension InvalidationTokenType {
@@ -28,7 +26,7 @@ extension InvalidationTokenType {
     public var validContext: ExecutionContext {
         return validContext(DefaultThreadingModel())
     }
-    
+
     public func validContext(_ parentContext: @escaping ExecutionContext = DefaultThreadingModel()) -> ExecutionContext {
         return { task in
             parentContext {
@@ -41,24 +39,23 @@ extension InvalidationTokenType {
 }
 
 /// The type that all invalidation tokens that can be manually invalidated conform to
-public protocol ManualInvalidationTokenType : InvalidationTokenType {
+public protocol ManualInvalidationTokenType: InvalidationTokenType {
     /// Invalidates the token
     func invalidate()
 }
 
 /// A default invalidation token implementation
-public class InvalidationToken : ManualInvalidationTokenType {
-   
+public class InvalidationToken: ManualInvalidationTokenType {
     public let future = Future<NoValue, BrightFuturesError<Never>>()
-    
+
     /// Creates a new valid token
-    public init() { }
-    
+    public init() {}
+
     /// Indicates if the token is invalid
     public var isInvalid: Bool {
         return future.isCompleted
     }
-    
+
     /// Invalidates the token
     public func invalidate() {
         future.failure(.invalidationTokenInvalidated)

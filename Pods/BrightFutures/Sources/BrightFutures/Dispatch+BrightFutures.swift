@@ -14,7 +14,7 @@ public extension DispatchQueue {
             self.async(execute: task)
         }
     }
-    
+
     func asyncValue<T>(_ execute: @escaping () -> T) -> Future<T, Never> {
         return Future { completion in
             async {
@@ -22,7 +22,7 @@ public extension DispatchQueue {
             }
         }
     }
-    
+
     func asyncResult<T, E>(_ execute: @escaping () -> Result<T, E>) -> Future<T, E> {
         return Future { completion in
             async {
@@ -30,7 +30,7 @@ public extension DispatchQueue {
             }
         }
     }
-    
+
     func asyncValueAfter<T>(_ deadline: DispatchTime, execute: @escaping () -> T) -> Future<T, Never> {
         return Future { completion in
             asyncAfter(deadline: deadline) {
@@ -38,13 +38,12 @@ public extension DispatchQueue {
             }
         }
     }
-    
 }
 
 public extension DispatchSemaphore {
     var context: ExecutionContext {
         return { task in
-            let _ = self.wait(timeout: DispatchTime.distantFuture)
+            _ = self.wait(timeout: DispatchTime.distantFuture)
             task()
             self.signal()
         }

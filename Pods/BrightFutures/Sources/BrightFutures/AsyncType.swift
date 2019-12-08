@@ -10,15 +10,15 @@ import Foundation
 
 public protocol AsyncType {
     associatedtype Value
-    
+
     var result: Value? { get }
-    
+
     init()
     init(result: Value)
     init(result: Value, delay: DispatchTimeInterval)
     init<A: AsyncType>(other: A) where A.Value == Value
     init(resolver: (_ result: @escaping (Value) -> Void) -> Void)
-    
+
     @discardableResult
     func onComplete(_ context: @escaping ExecutionContext, callback: @escaping (Value) -> Void) -> Self
 }
@@ -28,31 +28,31 @@ public extension AsyncType {
     var isCompleted: Bool {
         return result != nil
     }
-    
+
     /// Blocks the current thread until the future is completed and then returns the result
     func forced() -> Value {
         return forced(DispatchTime.distantFuture)!
     }
-    
+
     /// Blocks the current thread until the future is completed, but no longer than the given timeout
     /// If the future did not complete before the timeout, `nil` is returned, otherwise the result of the future is returned
     func forced(_ timeout: DispatchTime) -> Value? {
         if let result = result {
             return result
         }
-        
+
         let sema = DispatchSemaphore(value: 0)
-        var res: Value? = nil
+        var res: Value?
         onComplete(DispatchQueue.global().context) {
             res = $0
             sema.signal()
         }
-        
-        let _ = sema.wait(timeout: timeout)
-        
+
+        _ = sema.wait(timeout: timeout)
+
         return res
     }
-    
+
     /// Alias of delay(queue:interval:)
     /// Will pass the main queue if we are currently on the main thread, or the
     /// global queue otherwise
@@ -60,7 +60,7 @@ public extension AsyncType {
         if Thread.isMainThread {
             return delay(DispatchQueue.main, interval: interval)
         }
-        
+
         return delay(DispatchQueue.global(), interval: interval)
     }
 
@@ -78,7 +78,7 @@ public extension AsyncType {
             }
         }
     }
-    
+
     /// Adds the given closure as a callback for when this future completes.
     /// The closure is executed on the given context. If no context is given, the behavior is defined by the default threading model (see README.md)
     /// Returns a future that completes with the result from this future but only after executing the given closure

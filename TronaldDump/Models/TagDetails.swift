@@ -1,10 +1,4 @@
-//
-//  Tag.swift
-//  TronaldDump
-//
-//  Created by Angela Cartagena on 20/11/19.
 //  Copyright © 2019 ACartagena. All rights reserved.
-//
 
 import Foundation
 
@@ -12,11 +6,11 @@ typealias TagName = String
 
 struct TagDetails {
     struct Details {
-        struct Author: Decodable {
+        struct Author {
             let name: String
         }
 
-        struct Source: Decodable {
+        struct Source {
             let url: URL
         }
 

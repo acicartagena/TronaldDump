@@ -1,10 +1,4 @@
-//
-//  TagsViewController.swift
-//  TronaldDump
-//
-//  Created by Angela Cartagena on 19/11/19.
 //  Copyright © 2019 ACartagena. All rights reserved.
-//
 
 import BrightFutures
 import SnapKit

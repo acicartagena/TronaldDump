@@ -14,24 +14,23 @@ public protocol LoggerType {
 }
 
 public extension LoggerType {
-    func message<Value>(for value: Value, with identifier: String?, file: String, line: UInt, function: String) -> String {
+    func message<Value>(for _: Value, with identifier: String?, file: String, line: UInt, function: String) -> String {
         let messageBody: String
-        
+
         if let identifier = identifier {
             messageBody = "Future \(identifier)"
         } else {
             let fileName = (file as NSString).lastPathComponent
             messageBody = "\(fileName) at line \(line), func: \(function) - future"
         }
-        
+
         return "\(messageBody) completed"
     }
 }
 
 public struct Logger: LoggerType {
-    public init() {
-    }
-    
+    public init() {}
+
     public func log(message: String) {
         print(message)
     }

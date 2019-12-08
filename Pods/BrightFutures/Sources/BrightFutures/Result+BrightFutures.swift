@@ -7,19 +7,17 @@
 //
 
 public extension ResultProtocol {
-
     /// Case analysis for Result.
     ///
     /// Returns the value produced by applying `ifFailure` to `failure` Results, or `ifSuccess` to `success` Results.
     func analysis<Result>(ifSuccess: (Value) -> Result, ifFailure: (Error) -> Result) -> Result {
-        switch self.result {
-        case .success(let value):
+        switch result {
+        case let .success(value):
             return ifSuccess(value)
-        case .failure(let error):
+        case let .failure(error):
             return ifFailure(error)
         }
     }
-
 }
 
 extension ResultProtocol {
@@ -31,26 +29,25 @@ extension ResultProtocol {
     /// The implementation of this function uses `map`, but then flattens the result before returning it.
     public func flatMap<U>(_ f: (Value) -> Future<U, Error>) -> Future<U, Error> {
         return analysis(ifSuccess: {
-            return f($0)
+            f($0)
         }, ifFailure: {
-            return Future<U, Error>(error: $0)
+            Future<U, Error>(error: $0)
         })
     }
 }
 
 extension ResultProtocol where Value: ResultProtocol, Error == Value.Error {
-    
     /// Returns a .failure with the error from the outer or inner result if either of the two failed
     /// or a .success with the success value from the inner Result
-    public func flatten() -> Result<Value.Value,Value.Error> {
+    public func flatten() -> Result<Value.Value, Value.Error> {
         return analysis(ifSuccess: { innerRes in
-            return innerRes.analysis(ifSuccess: {
-                return .success($0)
+            innerRes.analysis(ifSuccess: {
+                .success($0)
             }, ifFailure: {
-                return .failure($0)
+                .failure($0)
             })
         }, ifFailure: {
-            return .failure($0)
+            .failure($0)
         })
     }
 }
@@ -60,12 +57,12 @@ extension ResultProtocol where Value: AsyncType, Value.Value: ResultProtocol, Er
     /// with the error from the outer result otherwise
     public func flatten() -> Future<Value.Value.Value, Value.Value.Error> {
         return Future { complete in
-            analysis(ifSuccess: { innerFuture -> () in
+            analysis(ifSuccess: { innerFuture -> Void in
                 innerFuture.onComplete(ImmediateExecutionContext) { res in
                     complete(res.analysis(ifSuccess: {
-                        return .success($0)
-                    }, ifFailure: {
-                        return .failure($0)
+                        .success($0)
+                        }, ifFailure: {
+                            .failure($0)
                     }))
                 }
             }, ifFailure: {

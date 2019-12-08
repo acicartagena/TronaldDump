@@ -19,9 +19,19 @@
 		35304BA423856B99002CBACE /* TagDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35304BA323856B99002CBACE /* TagDetailsViewModel.swift */; };
 		3532C3F2238602FB004A1B55 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532C3F1238602FB004A1B55 /* DateFormatter+Extensions.swift */; };
 		3532C3F523860A90004A1B55 /* TagDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532C3F423860A90004A1B55 /* TagDetailsCell.swift */; };
+		354F5BC7239C8E00009D3B2B /* TronaldDump.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BC5239C8E00009D3B2B /* TronaldDump.xcdatamodeld */; };
+		354F5BC9239C94CA009D3B2B /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BC8239C94CA009D3B2B /* LocalStorage.swift */; };
+		354F5BD5239C9D5E009D3B2B /* TronaldDumpLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BD4239C9D5E009D3B2B /* TronaldDumpLocalStorage.swift */; };
+		354F5BD7239CA5FA009D3B2B /* TagActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BD6239CA5FA009D3B2B /* TagActions.swift */; };
+		354F5BDE239CB3BE009D3B2B /* TagDetails+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BDD239CB3BE009D3B2B /* TagDetails+API.swift */; };
+		354F5BE0239CB3E1009D3B2B /* TagDetails+Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BDF239CB3E1009D3B2B /* TagDetails+Local.swift */; };
+		354F5BE9239CC0AA009D3B2B /* TagData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BE5239CC0A9009D3B2B /* TagData+CoreDataProperties.swift */; };
+		354F5BEA239CC0AA009D3B2B /* TagDetailsData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BE6239CC0A9009D3B2B /* TagDetailsData+CoreDataProperties.swift */; };
+		354F5BED239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BEB239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift */; };
+		354F5BEE239CC177009D3B2B /* TagData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F5BEC239CC177009D3B2B /* TagData+CoreDataClass.swift */; };
 		35574D72238A23B600122B98 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35574D71238A23B600122B98 /* API.swift */; };
 		35574D75238A372600122B98 /* TronaldDumpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35574D74238A372600122B98 /* TronaldDumpError.swift */; };
-		35574D7B238A3CAF00122B98 /* TronalDumpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35574D7A238A3CAF00122B98 /* TronalDumpAPI.swift */; };
+		35574D7B238A3CAF00122B98 /* TronaldDumpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35574D7A238A3CAF00122B98 /* TronaldDumpAPI.swift */; };
 		3592E387238405F000821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E386238405F000821B26 /* AppDelegate.swift */; };
 		3592E389238405F000821B26 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3592E388238405F000821B26 /* TagsViewController.swift */; };
 		3592E38E238405F100821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3592E38D238405F100821B26 /* Assets.xcassets */; };
@@ -64,9 +74,19 @@
 		35304BA323856B99002CBACE /* TagDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsViewModel.swift; sourceTree = "<group>"; };
 		3532C3F1238602FB004A1B55 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		3532C3F423860A90004A1B55 /* TagDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetailsCell.swift; sourceTree = "<group>"; };
+		354F5BC6239C8E00009D3B2B /* TagDetails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TagDetails.xcdatamodel; sourceTree = "<group>"; };
+		354F5BC8239C94CA009D3B2B /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		354F5BD4239C9D5E009D3B2B /* TronaldDumpLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpLocalStorage.swift; sourceTree = "<group>"; };
+		354F5BD6239CA5FA009D3B2B /* TagActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagActions.swift; sourceTree = "<group>"; };
+		354F5BDD239CB3BE009D3B2B /* TagDetails+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagDetails+API.swift"; sourceTree = "<group>"; };
+		354F5BDF239CB3E1009D3B2B /* TagDetails+Local.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagDetails+Local.swift"; sourceTree = "<group>"; };
+		354F5BE5239CC0A9009D3B2B /* TagData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TagData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		354F5BE6239CC0A9009D3B2B /* TagDetailsData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TagDetailsData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		354F5BEB239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TagDetailsData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		354F5BEC239CC177009D3B2B /* TagData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TagData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35574D71238A23B600122B98 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		35574D74238A372600122B98 /* TronaldDumpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpError.swift; sourceTree = "<group>"; };
-		35574D7A238A3CAF00122B98 /* TronalDumpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronalDumpAPI.swift; sourceTree = "<group>"; };
+		35574D7A238A3CAF00122B98 /* TronaldDumpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronaldDumpAPI.swift; sourceTree = "<group>"; };
 		3592E383238405F000821B26 /* TronaldDump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TronaldDump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3592E386238405F000821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3592E388238405F000821B26 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
@@ -168,13 +188,55 @@
 			path = "Tag Details";
 			sourceTree = "<group>";
 		};
-		35574D73238A2B2B00122B98 /* Services */ = {
+		354F5BC4239C8DD2009D3B2B /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				354F5BDC239CB31B009D3B2B /* CoreData models */,
+				354F5BD4239C9D5E009D3B2B /* TronaldDumpLocalStorage.swift */,
+				354F5BC8239C94CA009D3B2B /* LocalStorage.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		354F5BDC239CB31B009D3B2B /* CoreData models */ = {
+			isa = PBXGroup;
+			children = (
+				354F5BC5239C8E00009D3B2B /* TronaldDump.xcdatamodeld */,
+				354F5BEC239CC177009D3B2B /* TagData+CoreDataClass.swift */,
+				354F5BEB239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift */,
+				354F5BE5239CC0A9009D3B2B /* TagData+CoreDataProperties.swift */,
+				354F5BE6239CC0A9009D3B2B /* TagDetailsData+CoreDataProperties.swift */,
+			);
+			path = "CoreData models";
+			sourceTree = "<group>";
+		};
+		354F5BE1239CB552009D3B2B /* Response models */ = {
+			isa = PBXGroup;
+			children = (
+				3592E3B223840ACF00821B26 /* TagListResponse.swift */,
+				3592E3B423840E4E00821B26 /* TagDetailsResponse.swift */,
+			);
+			path = "Response models";
+			sourceTree = "<group>";
+		};
+		354F5BE2239CB55E009D3B2B /* Model transforms */ = {
+			isa = PBXGroup;
+			children = (
+				354F5BDD239CB3BE009D3B2B /* TagDetails+API.swift */,
+				354F5BDF239CB3E1009D3B2B /* TagDetails+Local.swift */,
+			);
+			path = "Model transforms";
+			sourceTree = "<group>";
+		};
+		35574D73238A2B2B00122B98 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				354F5BE2239CB55E009D3B2B /* Model transforms */,
 				35574D74238A372600122B98 /* TronaldDumpError.swift */,
+				354F5BD6239CA5FA009D3B2B /* TagActions.swift */,
 				3592E3AE23840A0A00821B26 /* TagService.swift */,
 			);
-			path = Services;
+			path = Actions;
 			sourceTree = "<group>";
 		};
 		3592E37A238405F000821B26 = {
@@ -202,9 +264,10 @@
 			isa = PBXGroup;
 			children = (
 				3592E386238405F000821B26 /* AppDelegate.swift */,
-				35574D73238A2B2B00122B98 /* Services */,
 				35304B8B2385426B002CBACE /* Extensions */,
 				3592E3B023840AB100821B26 /* API */,
+				354F5BC4239C8DD2009D3B2B /* Local */,
+				35574D73238A2B2B00122B98 /* Actions */,
 				3592E3B123840AB900821B26 /* Models */,
 				35304B9223855F33002CBACE /* UI */,
 				3592E3AB2384082500821B26 /* Supporting Files */,
@@ -239,9 +302,8 @@
 		3592E3B023840AB100821B26 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				3592E3B223840ACF00821B26 /* TagListResponse.swift */,
-				3592E3B423840E4E00821B26 /* TagDetailsResponse.swift */,
-				35574D7A238A3CAF00122B98 /* TronalDumpAPI.swift */,
+				354F5BE1239CB552009D3B2B /* Response models */,
+				35574D7A238A3CAF00122B98 /* TronaldDumpAPI.swift */,
 				35574D71238A23B600122B98 /* API.swift */,
 				3592E3AC2384084400821B26 /* Networking.swift */,
 			);
@@ -435,24 +497,34 @@
 			files = (
 				3532C3F2238602FB004A1B55 /* DateFormatter+Extensions.swift in Sources */,
 				3532C3F523860A90004A1B55 /* TagDetailsCell.swift in Sources */,
+				354F5BDE239CB3BE009D3B2B /* TagDetails+API.swift in Sources */,
 				35304B8A23853871002CBACE /* TagDetails.swift in Sources */,
+				354F5BE9239CC0AA009D3B2B /* TagData+CoreDataProperties.swift in Sources */,
 				35304B9C2385650D002CBACE /* CGFloat+Constants.swift in Sources */,
-				35574D7B238A3CAF00122B98 /* TronalDumpAPI.swift in Sources */,
+				35574D7B238A3CAF00122B98 /* TronaldDumpAPI.swift in Sources */,
 				35304B96238560C5002CBACE /* TagsViewModel.swift in Sources */,
+				354F5BC7239C8E00009D3B2B /* TronaldDump.xcdatamodeld in Sources */,
+				354F5BE0239CB3E1009D3B2B /* TagDetails+Local.swift in Sources */,
 				3592E3B323840ACF00821B26 /* TagListResponse.swift in Sources */,
 				3592E3A72384063300821B26 /* TagFlowCoordinator.swift in Sources */,
 				35304B9A2385621A002CBACE /* LoadingCell.swift in Sources */,
+				354F5BD5239C9D5E009D3B2B /* TronaldDumpLocalStorage.swift in Sources */,
 				3592E3AF23840A0A00821B26 /* TagService.swift in Sources */,
+				354F5BED239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift in Sources */,
+				354F5BEE239CC177009D3B2B /* TagData+CoreDataClass.swift in Sources */,
 				3592E389238405F000821B26 /* TagsViewController.swift in Sources */,
 				35574D75238A372600122B98 /* TronaldDumpError.swift in Sources */,
 				35304B8F238542AD002CBACE /* UITableView+Extensions.swift in Sources */,
 				35304B9423855F4F002CBACE /* ShowsError.swift in Sources */,
 				35304BA223856686002CBACE /* TagDetailsViewController.swift in Sources */,
+				354F5BD7239CA5FA009D3B2B /* TagActions.swift in Sources */,
 				3592E387238405F000821B26 /* AppDelegate.swift in Sources */,
 				35574D72238A23B600122B98 /* API.swift in Sources */,
+				354F5BEA239CC0AA009D3B2B /* TagDetailsData+CoreDataProperties.swift in Sources */,
 				35304B98238560E9002CBACE /* TagCell.swift in Sources */,
 				35304BA423856B99002CBACE /* TagDetailsViewModel.swift in Sources */,
 				3592E3AD2384084400821B26 /* Networking.swift in Sources */,
+				354F5BC9239C94CA009D3B2B /* LocalStorage.swift in Sources */,
 				3592E3B523840E4E00821B26 /* TagDetailsResponse.swift in Sources */,
 				35304B8D23854283002CBACE /* UITableViewCell+Extensions.swift in Sources */,
 			);
@@ -728,6 +800,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		354F5BC5239C8E00009D3B2B /* TronaldDump.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				354F5BC6239C8E00009D3B2B /* TagDetails.xcdatamodel */,
+			);
+			currentVersion = 354F5BC6239C8E00009D3B2B /* TagDetails.xcdatamodel */;
+			path = TronaldDump.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3592E37B238405F000821B26 /* Project object */;
 }

@@ -16,7 +16,6 @@ internal protocol MutableAsyncType: AsyncType {
 }
 
 extension MutableAsyncType {
-    
     /// Completes the Async with the given result
     /// If the Async is already completed, this function throws an error
     func complete(_ result: Value) {
@@ -27,8 +26,8 @@ extension MutableAsyncType {
             print(error)
         }
     }
-    
+
     func completeWith<A: AsyncType>(_ other: A) where A.Value == Value {
-        other.onComplete(ImmediateExecutionContext, callback: self.complete)
+        other.onComplete(ImmediateExecutionContext, callback: complete)
     }
 }

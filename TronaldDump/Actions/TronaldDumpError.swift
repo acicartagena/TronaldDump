@@ -1,10 +1,4 @@
-//
-//  TronaldDumpAPI.swift
-//  TronaldDump
-//
-//  Created by Angela Cartagena on 24/11/19.
 //  Copyright © 2019 ACartagena. All rights reserved.
-//
 
 import Foundation
 
@@ -14,6 +8,10 @@ enum TronaldDumpError: Error {
     init(apiError: APIError) {
         print(apiError)
         self = .show(apiError.localizedDescription)
+    }
+
+    init(storageError: LocalStorageError) {
+        self = .show(NSLocalizedString("Something went wrong", comment: ""))
     }
 
     var displayString: String {

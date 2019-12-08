@@ -1,10 +1,4 @@
-//
-//  DateFormatter+iso8601Full.swift
-//  TronaldDump
-//
-//  Created by Angela Cartagena on 21/11/19.
 //  Copyright © 2019 ACartagena. All rights reserved.
-//
 
 import Foundation
 

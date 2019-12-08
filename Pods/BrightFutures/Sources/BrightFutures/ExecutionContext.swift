@@ -46,16 +46,16 @@ public let MaxStackDepthExecutionContext: ExecutionContext = { task in
         static let taskDepthKey = "com.bolts.TaskDepthKey"
         static let maxTaskDepth = 20
     }
-    
+
     var localThreadDictionary = Thread.current.threadDictionary
-    
+
     var previousDepth: Int
     if let depth = localThreadDictionary[Static.taskDepthKey] as? Int {
         previousDepth = depth
     } else {
         previousDepth = 0
     }
-    
+
     if previousDepth > 20 {
         DispatchQueue.global().async(execute: task)
     } else {

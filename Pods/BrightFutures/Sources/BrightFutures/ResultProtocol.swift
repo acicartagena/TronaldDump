@@ -36,7 +36,7 @@ extension Result: ResultProtocol {
 
     public var value: Success? {
         switch self {
-        case .success(let value): return value
+        case let .success(value): return value
         case .failure: return nil
         }
     }
@@ -44,7 +44,7 @@ extension Result: ResultProtocol {
     public var error: Failure? {
         switch self {
         case .success: return nil
-        case .failure(let error): return error
+        case let .failure(error): return error
         }
     }
 }

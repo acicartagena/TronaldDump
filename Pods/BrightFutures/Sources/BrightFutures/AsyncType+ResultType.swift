@@ -9,45 +9,45 @@
 public extension AsyncType where Value: ResultProtocol {
     /// `true` if the future completed with success, or `false` otherwise
     var isSuccess: Bool {
-        return result?.analysis(ifSuccess: { _ in return true }, ifFailure: { _ in return false }) ?? false
+        return result?.analysis(ifSuccess: { _ in true }, ifFailure: { _ in false }) ?? false
     }
-    
+
     /// `true` if the future failed, or `false` otherwise
     var isFailure: Bool {
-        return result?.analysis(ifSuccess: { _ in return false }, ifFailure: { _ in return true }) ?? false
+        return result?.analysis(ifSuccess: { _ in false }, ifFailure: { _ in true }) ?? false
     }
-    
+
     var value: Value.Value? {
         return result?.result.value
     }
-    
+
     var error: Value.Error? {
         return result?.result.error
     }
-    
+
     /// Adds the given closure as a callback for when the future succeeds. The closure is executed on the given context.
     /// If no context is given, the behavior is defined by the default threading model (see README.md)
     /// Returns self
     @discardableResult
     func onSuccess(_ context: @escaping ExecutionContext = DefaultThreadingModel(), callback: @escaping (Value.Value) -> Void) -> Self {
-        self.onComplete(context) { result in
+        onComplete(context) { result in
             result.analysis(ifSuccess: callback, ifFailure: { _ in })
         }
-        
+
         return self
     }
-    
+
     /// Adds the given closure as a callback for when the future fails. The closure is executed on the given context.
     /// If no context is given, the behavior is defined by the default threading model (see README.md)
     /// Returns self
     @discardableResult
     func onFailure(_ context: @escaping ExecutionContext = DefaultThreadingModel(), callback: @escaping (Value.Error) -> Void) -> Self {
-        self.onComplete(context) { result in
+        onComplete(context) { result in
             result.analysis(ifSuccess: { _ in }, ifFailure: callback)
         }
         return self
     }
-    
+
     /// Enables the the chaining of two future-wrapped asynchronous operations where the second operation depends on the success value of the first.
     /// Like map, the given closure (that returns the second operation) is only executed if the first operation (this future) is successful.
     /// If a regular `map` was used, the result would be a `Future<Future<U>>`. The implementation of this function uses `map`, but then flattens the result
@@ -60,57 +60,58 @@ public extension AsyncType where Value: ResultProtocol {
     func flatMap<U>(_ context: @escaping ExecutionContext, f: @escaping (Value.Value) -> Future<U, Value.Error>) -> Future<U, Value.Error> {
         return map(context, f: f).flatten()
     }
-    
+
     /// See `flatMap<U>(context c: ExecutionContext, f: T -> Future<U, E>) -> Future<U, E>`
     /// The given closure is executed according to the default threading model (see README.md)
     func flatMap<U>(_ f: @escaping (Value.Value) -> Future<U, Value.Error>) -> Future<U, Value.Error> {
         return flatMap(DefaultThreadingModel(), f: f)
     }
-    
+
     /// Transforms the given closure returning `Result<U>` to a closure returning `Future<U>` and then calls
     /// `flatMap<U>(context c: ExecutionContext, f: T -> Future<U>) -> Future<U>`
     func flatMap<U>(_ context: @escaping ExecutionContext, f: @escaping (Value.Value) -> Result<U, Value.Error>) -> Future<U, Value.Error> {
-        return self.flatMap(context) { value in
-            return Future<U, Value.Error>(result: f(value))
+        return flatMap(context) { value in
+            Future<U, Value.Error>(result: f(value))
         }
     }
-    
+
     /// See `flatMap<U>(context c: ExecutionContext, f: T -> Result<U, E>) -> Future<U, E>`
     /// The given closure is executed according to the default threading model (see README.md)
     func flatMap<U>(_ f: @escaping (Value.Value) -> Result<U, Value.Error>) -> Future<U, Value.Error> {
         return flatMap(DefaultThreadingModel(), f: f)
     }
-    
+
     /// See `map<U>(context c: ExecutionContext, f: (T) -> U) -> Future<U>`
     /// The given closure is executed according to the default threading model (see README.md)
     func map<U>(_ f: @escaping (Value.Value) -> U) -> Future<U, Value.Error> {
-        return self.map(DefaultThreadingModel(), f: f)
+        return map(DefaultThreadingModel(), f: f)
     }
-    
+
     /// Returns a future that succeeds with the value returned from the given closure when it is invoked with the success value
     /// from this future. If this future fails, the returned future fails with the same error.
     /// The closure is executed on the given context. If no context is given, the behavior is defined by the default threading model (see README.md)
     func map<U>(_ context: @escaping ExecutionContext, f: @escaping (Value.Value) -> U) -> Future<U, Value.Error> {
         let res = Future<U, Value.Error>()
-        
-        self.onComplete(context, callback: { (result: Value) in
+
+        onComplete(context, callback: { (result: Value) in
             result.analysis(
                 ifSuccess: { res.success(f($0)) },
-                ifFailure: { res.failure($0) })
+                ifFailure: { res.failure($0) }
+            )
         })
-        
+
         return res
     }
-    
+
     /// Returns a future that completes with this future if this future succeeds or with the value returned from the given closure
     /// when it is invoked with the error that this future failed with.
     /// The closure is executed on the given context. If no context is given, the behavior is defined by the default threading model (see README.md)
     func recover(context c: @escaping ExecutionContext = DefaultThreadingModel(), task: @escaping (Value.Error) -> Value.Value) -> Future<Value.Value, Never> {
-        return self.recoverWith(context: c) { error -> Future<Value.Value, Never> in
-            return Future<Value.Value, Never>(value: task(error))
+        return recoverWith(context: c) { error -> Future<Value.Value, Never> in
+            Future<Value.Value, Never>(value: task(error))
         }
     }
-    
+
     /// Returns a future that completes with this future if this future succeeds or with the value returned from the given closure
     /// when it is invoked with the error that this future failed with.
     /// This function should be used in cases where there are two asynchronous operations where the second operation (returned from the given closure)
@@ -118,54 +119,56 @@ public extension AsyncType where Value: ResultProtocol {
     /// The closure is executed on the given context. If no context is given, the behavior is defined by the default threading model (see README.md)
     func recoverWith<E1>(context c: @escaping ExecutionContext = DefaultThreadingModel(), task: @escaping (Value.Error) -> Future<Value.Value, E1>) -> Future<Value.Value, E1> {
         let res = Future<Value.Value, E1>()
-        
-        self.onComplete(c) { result in
+
+        onComplete(c) { result in
             result.analysis(
                 ifSuccess: { res.success($0) },
-                ifFailure: { res.completeWith(task($0)) })
+                ifFailure: { res.completeWith(task($0)) }
+            )
         }
-        
+
         return res
     }
-    
+
     /// See `mapError<E1>(context c: ExecutionContext, f: E -> E1) -> Future<T, E1>`
     /// The given closure is executed according to the default threading model (see README.md)
     func mapError<E1>(_ f: @escaping (Value.Error) -> E1) -> Future<Value.Value, E1> {
         return mapError(DefaultThreadingModel(), f: f)
     }
-    
+
     /// Returns a future that fails with the error returned from the given closure when it is invoked with the error
     /// from this future. If this future succeeds, the returned future succeeds with the same value and the closure is not executed.
     /// The closure is executed on the given context.
     func mapError<E1>(_ context: @escaping ExecutionContext, f: @escaping (Value.Error) -> E1) -> Future<Value.Value, E1> {
         let res = Future<Value.Value, E1>()
-        
-        self.onComplete(context) { result in
+
+        onComplete(context) { result in
             result.analysis(
-                ifSuccess: { res.success($0) } ,
-                ifFailure: { res.failure(f($0)) })
+                ifSuccess: { res.success($0) },
+                ifFailure: { res.failure(f($0)) }
+            )
         }
-        
+
         return res
     }
-    
+
     /// Returns a future that succeeds with a tuple consisting of the success value of this future and the success value of the given future
     /// If either of the two futures fail, the returned future fails with the failure of this future or that future (in this order)
-    func zip<U>(_ that: Future<U, Value.Error>) -> Future<(Value.Value,U), Value.Error> {
-        return flatMap(ImmediateExecutionContext) { thisVal -> Future<(Value.Value,U), Value.Error> in
-            return that.map(ImmediateExecutionContext) { thatVal in
-                return (thisVal, thatVal)
+    func zip<U>(_ that: Future<U, Value.Error>) -> Future<(Value.Value, U), Value.Error> {
+        return flatMap(ImmediateExecutionContext) { thisVal -> Future<(Value.Value, U), Value.Error> in
+            that.map(ImmediateExecutionContext) { thatVal in
+                (thisVal, thatVal)
             }
         }
     }
-    
+
     /// Returns a future that succeeds with the value that this future succeeds with if it passes the test
     /// (i.e. the given closure returns `true` when invoked with the success value) or an error with code
     /// `ErrorCode.noSuchElement` if the test failed.
     /// If this future fails, the returned future fails with the same error.
     func filter(_ p: @escaping (Value.Value) -> Bool) -> Future<Value.Value, BrightFuturesError<Value.Error>> {
-        return self.mapError(ImmediateExecutionContext) { error in
-            return BrightFuturesError(external: error)
+        return mapError(ImmediateExecutionContext) { error in
+            BrightFuturesError(external: error)
         }.flatMap(ImmediateExecutionContext) { value -> Result<Value.Value, BrightFuturesError<Value.Error>> in
             if p(value) {
                 return .success(value)
@@ -174,20 +177,20 @@ public extension AsyncType where Value: ResultProtocol {
             }
         }
     }
-    
+
     /// Returns a new future with the new type.
     /// The value or error will be casted using `as!` and may cause a runtime error
     func forceType<U, E1>() -> Future<U, E1> {
-        return self.map(ImmediateExecutionContext) {
+        return map(ImmediateExecutionContext) {
             $0 as! U
         }.mapError(ImmediateExecutionContext) {
             $0 as! E1
         }
     }
-    
+
     /// Returns a new future that completes with this future, but returns Void on success
     func asVoid() -> Future<Void, Value.Error> {
-        return self.map(ImmediateExecutionContext) { _ in return () }
+        return map(ImmediateExecutionContext) { _ in () }
     }
 }
 
@@ -196,18 +199,17 @@ public extension AsyncType where Value: ResultProtocol, Value.Value: AsyncType, 
     /// if both futures succeed.
     func flatten() -> Future<Value.Value.Value.Value, Value.Error> {
         let f = Future<Value.Value.Value.Value, Value.Error>()
-        
+
         onComplete(ImmediateExecutionContext) { res in
-            res.analysis(ifSuccess: { innerFuture -> () in
-                innerFuture.onComplete(ImmediateExecutionContext) { (res:Value.Value.Value) in
+            res.analysis(ifSuccess: { innerFuture -> Void in
+                innerFuture.onComplete(ImmediateExecutionContext) { (res: Value.Value.Value) in
                     res.analysis(ifSuccess: { f.success($0) }, ifFailure: { err in f.failure(err) })
                 }
             }, ifFailure: { f.failure($0) })
         }
-        
+
         return f
     }
-    
 }
 
 public extension AsyncType where Value: ResultProtocol, Value.Error == Never {
@@ -235,7 +237,7 @@ public extension AsyncType where Value: ResultProtocol, Value.Error == BrightFut
                 return BrightFuturesError<E>.invalidationTokenInvalidated
             case .illegalState:
                 return BrightFuturesError<E>.illegalState
-            case .external(_):
+            case .external:
                 fatalError("Encountered BrightFuturesError.External with Never, which should be impossible")
             }
         }
@@ -251,4 +253,3 @@ public extension AsyncType where Value: ResultProtocol, Value.Value == NoValue {
         return map(ImmediateExecutionContext) { $0 as! T } // future will never succeed, so this map block will never get called
     }
 }
-
