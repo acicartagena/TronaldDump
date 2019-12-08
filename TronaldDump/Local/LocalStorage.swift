@@ -9,7 +9,7 @@ class LocalStorage {
     init() {
         container.loadPersistentStores { _, error in
             if let error = error {
-                print("local storage error: \(error)")
+                print("local storage error: \(error)") // improvement: send error over to a logging/monitoring service
             }
         }
     }
@@ -19,7 +19,7 @@ class LocalStorage {
         do {
             try container.viewContext.save()
         } catch {
-            print("error saving: \(error)")
+            print("error saving: \(error)") // improvement: send error over to a logging/monitoring service
         }
     }
 }

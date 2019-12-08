@@ -5,7 +5,6 @@ import Foundation
 
 enum LocalStorageError: Error {
     case fetchFailed
-    case saveFailed
 }
 
 protocol TronaldDumpLocal {

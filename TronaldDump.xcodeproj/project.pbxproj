@@ -203,8 +203,8 @@
 			children = (
 				354F5BC5239C8E00009D3B2B /* TronaldDump.xcdatamodeld */,
 				354F5BEC239CC177009D3B2B /* TagData+CoreDataClass.swift */,
-				354F5BEB239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift */,
 				354F5BE5239CC0A9009D3B2B /* TagData+CoreDataProperties.swift */,
+				354F5BEB239CC177009D3B2B /* TagDetailsData+CoreDataClass.swift */,
 				354F5BE6239CC0A9009D3B2B /* TagDetailsData+CoreDataProperties.swift */,
 			);
 			path = "CoreData models";

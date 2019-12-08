@@ -39,12 +39,13 @@ extension TagService: TagActions {
             self?.local.save(tagDetails: tagDetails.details, for: tag)
         }
 
-        let cachedResult = request.recoverWith { [weak self] error -> Future<TagDetails, TronaldDumpError> in
-            guard let self = self else { return request }
-            return self.local.loadDetails(for: tag)
-                .map { TagDetails(localData: $0) }
-                .mapError { _ in error }
-        }
+        let cachedResult = request
+            .recoverWith { [weak self] error -> Future<TagDetails, TronaldDumpError> in
+                guard let self = self else { return request }
+                return self.local.loadDetails(for: tag)
+                    .map { TagDetails(localData: $0) }
+                    .mapError { _ in error }
+            }
 
         return cachedResult
     }
