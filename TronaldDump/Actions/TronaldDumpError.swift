@@ -10,7 +10,7 @@ enum TronaldDumpError: Error {
         self = .show(apiError.localizedDescription)
     }
 
-    init(storageError: LocalStorageError) {
+    init(storageError _: LocalStorageError) {
         self = .show(NSLocalizedString("Something went wrong", comment: ""))
     }
 

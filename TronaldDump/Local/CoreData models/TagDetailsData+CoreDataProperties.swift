@@ -1,11 +1,9 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension TagDetailsData {
-
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<TagDetailsData> {
         return NSFetchRequest<TagDetailsData>(entityName: "TagDetailsData")
     }
@@ -15,5 +13,4 @@ extension TagDetailsData {
     @NSManaged public var source: String?
     @NSManaged public var value: String
     @NSManaged public var tag: String
-
 }

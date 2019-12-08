@@ -27,7 +27,7 @@ class TronaldDumpAPI: API {
         guard let url = URL(string: urlString) else {
             return Future(error: .invalidURL(urlString))
         }
-        
+
         return get(url: url)
     }
 

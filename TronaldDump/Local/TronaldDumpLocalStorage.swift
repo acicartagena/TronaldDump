@@ -1,7 +1,7 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 
-import Foundation
 import BrightFutures
+import Foundation
 
 enum LocalStorageError: Error {
     case fetchFailed
@@ -16,7 +16,7 @@ protocol TronaldDumpLocal {
 }
 
 class TronaldDumpLocalStorage: LocalStorage {
-    func loadTags() -> Future<[TagData], LocalStorageError>  {
+    func loadTags() -> Future<[TagData], LocalStorageError> {
         let promise = Promise<[TagData], LocalStorageError>()
         let request = TagData.createFetchRequest()
         do {

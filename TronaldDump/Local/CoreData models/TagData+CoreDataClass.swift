@@ -1,9 +1,7 @@
 //  Copyright © 2019 ACartagena. All rights reserved.
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(TagData)
-public class TagData: NSManagedObject {
-
-}
+public class TagData: NSManagedObject {}
