@@ -40,11 +40,11 @@ class TagsViewModelTests: XCTestCase {
     }
 
     func testError() {
-        actions.getTagsResult = .failure(.noData)
+        actions.getTagsResult = .failure(.show("noData"))
         subject.start()
 
         XCTAssertEqual(subject.items, [.loading])
-        XCTAssertEqual(delegateCalls, ["showError: noData"])
+        XCTAssertEqual(delegateCalls, ["showError: show(\"noData\")"])
     }
 
     func testSelectItem() {
